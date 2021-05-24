@@ -9,7 +9,9 @@ const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const fallback = require('express-history-api-fallback');
 
+const { handlers } = require('../libs/auth');
 const faucetRoutes = require('../routes/faucet');
+const envRoutes = require('../routes/env');
 const tokenRoutes = require('../routes/token');
 
 const ROOT_DIR = path.resolve(__dirname, '../../');
@@ -40,7 +42,8 @@ app.use(
 );
 
 const router = express.Router();
-router.use('/api', faucetRoutes);
+handlers.attach({ app: router, ...faucetRoutes });
+router.use('/api', envRoutes);
 router.use('/api', tokenRoutes);
 app.use(router);
 
