@@ -3,6 +3,7 @@ const pick = require('lodash/pick');
 const Client = require('@ocap/client');
 
 const Token = require('../states/token');
+const { wallet } = require('../libs/auth');
 
 const router = express.Router();
 
@@ -50,6 +51,13 @@ router.post('/tokens', async (req, res) => {
     return res.json({ error: `token ${tokenAddress} from ${chainHost} is already listed` });
   }
 
+  // ensure the faucet webapp account exist on the token chain
+  const { state: account } = await client.getAccountState({ address: wallet.toAddress() });
+  if (!account) {
+    await client.declare({ moniker: 'faucet-webapp', wallet });
+  }
+
+  // insert token record
   const item = await Token.insert({
     chainHost,
     chainId: info.network,
