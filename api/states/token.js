@@ -8,6 +8,7 @@ const Base = require('./base');
  * - address: String
  * - symbol: !String
  * - decimal: !String
+ * - faucetAmount: Number
  */
 
 class Token extends Base {

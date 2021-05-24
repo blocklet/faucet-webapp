@@ -1,9 +1,8 @@
-const axios = require('axios');
 const Client = require('@ocap/client');
 const { BN } = require('@ocap/util');
 
-const History = require('../states/history');
 const Token = require('../states/token');
+const History = require('../states/history');
 
 const logger = require('../libs/logger');
 const { wallet } = require('../libs/auth');
@@ -86,14 +85,22 @@ module.exports = {
       });
     }
 
-    await History.insert({
+    const item = {
       tokenId: id,
       userDid,
       type,
       amount: types[type].amount,
       nextTimeMs: now + types[type].duration,
       hash,
-    });
+    };
+
+    // Save history
+    logger.info('faucet done', item);
+    await History.insert(item);
+
+    // Update faucet stats
+    const tokenNew = await Token.findOne({ _id: id });
+    await Token.update({ _id: id }, { faucetAmount: tokenNew.faucetAmount + types[type].amount });
 
     // return the tx hash
     return { hash };

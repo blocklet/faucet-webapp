@@ -3,7 +3,6 @@ const pick = require('lodash/pick');
 const Client = require('@ocap/client');
 
 const Token = require('../states/token');
-// const { wallet } = require('../libs/auth');
 
 const router = express.Router();
 
@@ -54,6 +53,7 @@ router.post('/tokens', async (req, res) => {
   const item = await Token.insert({
     chainHost,
     chainId: info.network,
+    faucetAmount: 0,
     ...pick(state, ['name', 'symbol', 'decimal']),
   });
 
@@ -62,13 +62,13 @@ router.post('/tokens', async (req, res) => {
 
 // fetch token list
 router.get('/tokens', async (req, res) => {
-  const tokens = await Token.find();
+  const tokens = await Token.find({});
   return res.json(tokens);
 });
 
 // fetch token list for a chain
 router.get('/tokens-by-chain', async (req, res) => {
-  const { chainHost } = req.body;
+  const { chainHost } = req.query;
   if (!chainHost) {
     return res.json({ error: 'chainHost is required to list token' });
   }
