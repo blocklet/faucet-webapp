@@ -1,0 +1,55 @@
+name: faucet-webapp
+description: A faucet to help users to get test token on arcblock blockchain network
+keywords:
+  - blocklet
+  - registry
+author:
+  name: shijun
+  email: shijun@arcblock.io
+repository:
+  type: git
+  url: 'git+https://github.com/blocklet/faucet-webapp.git'
+version: 0.1.0
+license: Apache-2.0
+title: ABT Network Faucet
+files:
+  - screenshots
+  - public
+  - api/hooks/pre-start.js
+  - logo.png
+  - blocklet.md
+  - README.md
+  - build
+group: dapp
+main: api/index.js
+logo: logo.png
+community: 'https://community.arcblockio.cn'
+support: support@arcblock.io
+documentation: 'https://docs.arcblock.io'
+homepage: 'https://github.com/blocklet/faucet-webapp'
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: '*'
+    protocol: http
+    port: BLOCKLET_PORT
+screenshots: []
+environments: []
+scripts:
+  preStart: node api/hooks/pre-start.js
+  dev: npm run start
+specVersion: 1.1.1
+did: z8ia29UsENBg6tLZUKi2HABj38Cw1LmHZocbQ
+timeout:
+  start: 60
+requirements:
+  abtnode: '>=1.2.6'
+  os: '*'
+  cpu: '*'
+charging:
+  price: 0
+  tokens: []
+  shares: []
+capabilities:
+  clusterMode: false
