@@ -14,7 +14,7 @@ function TokenProvider({ children }) {
   const state = useAsyncRetry(async () => {
     try {
       // eslint-disable-next-line no-shadow
-      const tokens = await client.get('/api/tokens');
+      const { data: tokens } = await client.get('/api/tokens');
       setTokens(tokens);
       return { tokens };
     } catch (err) {
