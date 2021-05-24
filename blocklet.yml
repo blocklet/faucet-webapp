@@ -15,7 +15,6 @@ title: ABT Network Faucet
 files:
   - screenshots
   - public
-  - api/hooks/pre-start.js
   - logo.png
   - blocklet.md
   - README.md
@@ -37,7 +36,6 @@ interfaces:
 screenshots: []
 environments: []
 scripts:
-  preStart: node api/hooks/pre-start.js
   dev: npm run start
 specVersion: 1.1.1
 did: z8ia29UsENBg6tLZUKi2HABj38Cw1LmHZocbQ
