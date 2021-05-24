@@ -66,4 +66,26 @@ router.get('/tokens', async (req, res) => {
   return res.json(tokens);
 });
 
+// fetch token list for a chain
+router.get('/tokens-by-chain', async (req, res) => {
+  const { chainHost } = req.body;
+  if (!chainHost) {
+    return res.json({ error: 'chainHost is required to list token' });
+  }
+
+  const [client] = await isValidChainEndpoint(chainHost);
+  if (!client) {
+    return res.json({ error: `${chainHost} is not valid chain endpoint` });
+  }
+
+  const [{ state }, { tokens }] = await Promise.all([
+    client.getForgeState(),
+    client.listTokens({ paging: { size: 100 } }),
+  ]);
+
+  return res.json(
+    [{ ...state, address: '' }].concat(tokens).map((x) => pick(x, ['address', 'name', 'symbol', 'decimal']))
+  );
+});
+
 module.exports = router;
