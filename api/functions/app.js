@@ -9,12 +9,8 @@ const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const fallback = require('express-history-api-fallback');
 
-const publishRoutes = require('../routes/upload');
-const blockletRoutes = require('../routes/blocklet');
-const registryRoutes = require('../routes/registry');
-const nftRoutes = require('../routes/nft');
-const { blockletDataDir } = require('../libs/env');
-const { ASSETS_PATH_PREFIX } = require('../libs/constant');
+const faucetRoutes = require('../routes/faucet');
+const tokenRoutes = require('../routes/token');
 
 const ROOT_DIR = path.resolve(__dirname, '../../');
 
@@ -26,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(favicon(path.join(ROOT_DIR, 'public', 'favicon.ico')));
 app.use(express.static(path.join(ROOT_DIR, 'public'), { maxAge: '1d', index: false }));
-app.use(ASSETS_PATH_PREFIX, express.static(path.join(blockletDataDir, 'assets'), { maxAge: '1d', index: false }));
 
 app.use(
   morgan((tokens, req, res) => {
@@ -45,10 +40,8 @@ app.use(
 );
 
 const router = express.Router();
-router.use('/api', blockletRoutes);
-router.use('/api', publishRoutes);
-router.use('/api', registryRoutes);
-router.use('/api', nftRoutes);
+router.use('/api', faucetRoutes);
+router.use('/api', tokenRoutes);
 app.use(router);
 
 const isProduction = process.env.NODE_ENV === 'production' || !!process.env.BLOCKLET_APP_ID;
@@ -58,10 +51,6 @@ if (isProduction) {
   app.use(fallback('index.html', { root: staticDir }));
 }
 
-if (process.env.BLOCKLET_DID) {
-  app.use(`/${process.env.BLOCKLET_DID}`, router);
-  app.use(`/${process.env.BLOCKLET_DID}`, express.static(staticDir, { maxAge: '365d', index: false }));
-}
 app.get('/', (req, res) => {
   res.sendFile(path.join(ROOT_DIR, './public/redirect.html'));
 });
