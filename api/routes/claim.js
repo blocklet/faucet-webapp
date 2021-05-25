@@ -42,16 +42,22 @@ module.exports = {
     // Check balance
     if (token.address) {
       const {
-        tokens: [{ balance: actualBalance }],
-      } = await client.getAccountToken({ address: wallet.toAddress(), token: token.address });
+        tokens: [holding],
+      } = await client.getAccountTokens({ address: wallet.toAddress(), token: token.address });
+      if (!holding) {
+        throw new Error('No token to complete your request');
+      }
+
       const requiredBalance = types[type].amount;
-      if (new BN(requiredBalance).gt(new BN(actualBalance))) {
+      if (new BN(requiredBalance, holding.decimal).gt(new BN(holding.balance))) {
         throw new Error('Insufficient token to complete your request');
       }
     } else {
-      const { balance: actualBalance } = await client.getAccountState({ address: wallet.toAddress() });
+      const {
+        state: { balance: actualBalance },
+      } = await client.getAccountState({ address: wallet.toAddress() });
       const requiredBalance = types[type].amount;
-      if (new BN(requiredBalance).gt(new BN(actualBalance))) {
+      if (new BN(requiredBalance, client.context.token.decimal).gt(new BN(actualBalance))) {
         throw new Error('Insufficient fund to complete your request');
       }
     }
@@ -87,7 +93,7 @@ module.exports = {
 
     // Update faucet stats
     const tokenNew = await Token.findOne({ _id: id });
-    await Token.update({ _id: id }, { faucetAmount: tokenNew.faucetAmount + types[type].amount });
+    await Token.update({ _id: id }, { ...tokenNew, faucetAmount: tokenNew.faucetAmount + types[type].amount });
 
     // return the tx hash
     return { hash };

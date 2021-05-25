@@ -4,6 +4,8 @@ const { types } = require('@ocap/mcrypto');
 const { fromSecretKey, WalletType } = require('@ocap/wallet');
 const { WalletAuthenticator, WalletHandlers } = require('@arcblock/did-auth');
 
+const Token = require('../states/token');
+
 const wallet = fromSecretKey(process.env.BLOCKLET_APP_SK, WalletType({ role: types.RoleType.ROLE_APPLICATION }));
 
 const authenticator = new WalletAuthenticator({
@@ -14,6 +16,10 @@ const authenticator = new WalletAuthenticator({
     icon: `${process.env.BLOCKLET_PORT}/images/logo.png`,
     link: baseUrl,
   }),
+  chainInfo: async ({ id }) => {
+    const token = await Token.findOne({ _id: id });
+    return { host: token.chainHost, id: token.chainId };
+  },
 });
 
 const handlers = new WalletHandlers({
