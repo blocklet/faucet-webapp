@@ -36,7 +36,7 @@ export default function ConfirmDialog({
   const { t: changeLocale } = useLocaleContext();
   const theme = useTheme();
 
-  const onCallback = async cb => {
+  const onCallback = async (cb) => {
     if (typeof cb === 'function') {
       setLoading(true);
       try {
@@ -58,7 +58,7 @@ export default function ConfirmDialog({
 
   const isBreakpointsDownSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.stopPropagation();
   };
   const { minWidth } = useMobileWidth();
@@ -77,7 +77,7 @@ export default function ConfirmDialog({
       <DialogActions style={{ padding: '8px 24px 24px' }}>
         {showCancel && (
           <Button
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
               onCallback(onCancel);
             }}
@@ -89,7 +89,7 @@ export default function ConfirmDialog({
           </Button>
         )}
         <Button
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation();
             onCallback(onConfirm);
           }}
@@ -126,7 +126,7 @@ ConfirmDialog.defaultProps = {
   showCancel: true,
   cancel: '',
   confirm: 'Confirm',
-  color: 'danger',
+  color: 'primary',
   params: {},
 };
 

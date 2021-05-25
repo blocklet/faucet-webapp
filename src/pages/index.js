@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useSnackbar } from 'notistack';
 
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
@@ -15,15 +16,25 @@ import Center from '@arcblock/ux/lib/Center';
 
 import ConfirmDialog from '../components/confirm';
 import { useTokenContext } from '../contexts/token';
+import { formatError } from '../libs/util';
 
 export default function HomePage() {
   const { t } = useLocaleContext();
+  const { enqueueSnackbar } = useSnackbar();
   const info = useTokenContext();
   const [showAddDialog, setShowAddDialog] = useState(false);
 
-  const onAddToken = (data) => {
-    console.log('onAddToken', data);
-    setShowAddDialog(false);
+  const onAddToken = async (data) => {
+    try {
+      await info.api.post('/api/tokens', data);
+      enqueueSnackbar(t('added'), { autoHideDuration: 5000, variant: 'success' });
+      info.refresh();
+    } catch (err) {
+      enqueueSnackbar(formatError(err), { autoHideDuration: 5000, variant: 'error' });
+      console.error('Blocklet installed failed', err);
+    } finally {
+      setShowAddDialog(false);
+    }
   };
 
   const addSetting = {
@@ -41,7 +52,7 @@ export default function HomePage() {
           <Typography component="div">
             <TextField
               label={t('chainHost.label')}
-              placeHolder={t('chainHost.placeholder')}
+              placeholder={t('chainHost.placeholder')}
               autoComplete="off"
               variant="outlined"
               style={{ marginBottom: 24 }}
@@ -54,7 +65,7 @@ export default function HomePage() {
             />
             <TextField
               label={t('tokenAddress.label')}
-              placeHolder={t('tokenAddress.placeholder')}
+              placeholder={t('tokenAddress.placeholder')}
               autoComplete="off"
               variant="outlined"
               fullWidth
@@ -67,7 +78,7 @@ export default function HomePage() {
         </div>
       );
     },
-    confirm: t('save'),
+    confirm: t('submit'),
     cancel: t('cancel'),
     onConfirm: onAddToken,
     onCancel: () => setShowAddDialog(false),

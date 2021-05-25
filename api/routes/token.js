@@ -1,5 +1,6 @@
 const express = require('express');
 const pick = require('lodash/pick');
+const sortBy = require('lodash/sortBy');
 const Client = require('@ocap/client');
 
 const Token = require('../states/token');
@@ -27,28 +28,34 @@ const isValidChainEndpoint = async (endpoint) => {
 
 // create new token in the list
 router.post('/tokens', async (req, res) => {
-  const { chainHost, tokenAddress } = req.body;
+  const { chainHost, tokenAddress = '' } = req.body;
   if (!chainHost) {
-    return res.json({ error: 'chainHost is required to list new token' });
-  }
-  if (!tokenAddress) {
-    return res.json({ error: 'tokenAddress is required to list new token' });
+    return res.status(400).json({ error: 'chainHost is required to list new token' });
   }
 
   const [client, info] = await isValidChainEndpoint(chainHost);
 
   if (!client) {
-    return res.json({ error: `${chainHost} is not valid chain endpoint` });
+    return res.status(400).json({ error: `${chainHost} is not valid chain endpoint` });
   }
 
-  const { state } = await client.getTokenState({ address: tokenAddress });
-  if (!state) {
-    return res.json({ error: `token ${tokenAddress} not found on chain ${chainHost}` });
+  let token;
+  if (tokenAddress) {
+    const result = await client.getTokenState({ address: tokenAddress });
+    if (!result.state) {
+      return res.status(400).json({ error: `token ${tokenAddress} not found on chain ${chainHost}` });
+    }
+
+    token = result.state;
+  } else {
+    const result = await client.getForgeState();
+    // eslint-disable-next-line prefer-destructuring
+    token = result.state.token;
   }
 
   const exist = await Token.exists({ chainId: info.network, address: tokenAddress });
   if (exist) {
-    return res.json({ error: `token ${tokenAddress} from ${chainHost} is already listed` });
+    return res.status(400).json({ error: `token ${tokenAddress} from ${chainHost} is already listed` });
   }
 
   // ensure the faucet webapp account exist on the token chain
@@ -61,8 +68,9 @@ router.post('/tokens', async (req, res) => {
   const item = await Token.insert({
     chainHost,
     chainId: info.network,
+    address: tokenAddress,
     faucetAmount: 0,
-    ...pick(state, ['name', 'symbol', 'decimal']),
+    ...pick(token, ['name', 'symbol', 'decimal']),
   });
 
   return res.json(item);
@@ -71,7 +79,7 @@ router.post('/tokens', async (req, res) => {
 // fetch token list
 router.get('/tokens', async (req, res) => {
   const tokens = await Token.find({});
-  return res.json(tokens);
+  return res.json(sortBy(tokens, 'createdAt').reverse());
 });
 
 // fetch token list for a chain

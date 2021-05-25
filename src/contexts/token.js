@@ -35,6 +35,7 @@ function TokenProvider({ children }) {
     error: state.error,
     refresh: state.retry,
     data: items,
+    api: client,
   };
 
   return <Provider value={{ tokens: value }}>{children}</Provider>;
