@@ -14,7 +14,6 @@ import MenuList from '@material-ui/core/MenuList';
 import Auth from '@arcblock/did-react/lib/Auth';
 import Toast from '@arcblock/ux/lib/Toast';
 import Button from '@arcblock/ux/lib/Button';
-import ButtonGroup from '@arcblock/ux/lib/ButtonGroup';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
 import { useTokenContext } from '../contexts/token';
@@ -55,18 +54,18 @@ export default function ClaimToken({ token }) {
 
   return (
     <React.Fragment>
-      <ButtonGroup variant="contained" size="small" color="primary" aria-label="split button" rounded>
-        <Button size="small">{t('claim')}</Button>
-        <Button
-          size="small"
-          aria-controls={dropdownOpen ? 'split-button-menu' : undefined}
-          aria-expanded={dropdownOpen ? 'true' : undefined}
-          ref={anchorRef}
-          data-cy="open-install-menu"
-          onClick={onToggle}>
-          <ArrowDropDownIcon />
-        </Button>
-      </ButtonGroup>
+      <Button
+        size="small"
+        variant="contained"
+        color="primary"
+        aria-label="split button"
+        rounded
+        ref={anchorRef}
+        data-cy="open-install-menu"
+        onClick={onToggle}>
+        {t('claim')}
+        <ArrowDropDownIcon />
+      </Button>
       <Popper
         open={dropdownOpen}
         anchorEl={anchorRef.current}

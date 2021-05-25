@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { useSnackbar } from 'notistack';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -182,35 +181,33 @@ export default function HomePage() {
           <LocaleSelector size={28} showText={false} className="addon-locale" />
         </div>
       </div>
-      <Paper className="main">
-        <div className="tokens">
-          <TableStyle className="token-list">
-            <MaterialTable
-              title={t('available')}
-              data={info.data}
-              icons={{ ...TableIcons }}
-              options={{
-                header: true,
-                emptyRowsWhenPaging: false,
-                actionsColumnIndex: -1,
-                tableLayout: 'auto',
-                maxBodyHeight: '100%',
-                pageSize,
-                pageSizeOptions: [10, 20, 50, 100],
-              }}
-              localization={{
-                toolbar: { searchPlaceholder: t('search') },
-                body: {
-                  emptyDataSourceMessage: t('noData'),
-                },
-              }}
-              onOrderChange={onSortChange}
-              onChangeRowsPerPage={onPageSizeChange}
-              columns={columns}
-            />
-          </TableStyle>
-        </div>
-      </Paper>
+      <div className="main">
+        <TableStyle className="token-list">
+          <MaterialTable
+            title={t('available')}
+            data={info.data}
+            icons={{ ...TableIcons }}
+            options={{
+              header: true,
+              emptyRowsWhenPaging: false,
+              actionsColumnIndex: -1,
+              tableLayout: 'auto',
+              maxBodyHeight: '100%',
+              pageSize,
+              pageSizeOptions: [10, 20, 50, 100],
+            }}
+            localization={{
+              toolbar: { searchPlaceholder: t('search') },
+              body: {
+                emptyDataSourceMessage: t('noData'),
+              },
+            }}
+            onOrderChange={onSortChange}
+            onChangeRowsPerPage={onPageSizeChange}
+            columns={columns}
+          />
+        </TableStyle>
+      </div>
       {showAddDialog && (
         <ConfirmDialog
           title={addSetting.title}
@@ -261,8 +258,9 @@ const Div = styled(Container)`
   }
 
   .main {
-    padding: 24px;
-    box-shadow: none;
-    border: 1px solid #efefef;
+    .MuiPaper-root-5 {
+      box-shadow: none;
+      border: 1px solid #efefef;
+    }
   }
 `;
