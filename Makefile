@@ -43,11 +43,6 @@ doc:
 
 precommit: dep lint doc build test
 
-travis: precommit
-
-travis-deploy: release
-	@echo "Deploy the software by travis"
-
 clean:
 	@echo "Cleaning the build..."
 
