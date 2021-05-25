@@ -11,6 +11,7 @@ module.exports = flat({
   claim: '领取',
   available: '所有通证',
   search: '搜索',
+  chain: '链',
   name: '名称',
   symbol: '符号',
   address: 'DID',

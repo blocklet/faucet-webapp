@@ -11,6 +11,7 @@ module.exports = flat({
   claim: 'Claim',
   available: 'Available Tokens',
   search: 'Search',
+  chain: 'Chain',
   name: 'Name',
   symbol: 'Symbol',
   address: 'DID',
