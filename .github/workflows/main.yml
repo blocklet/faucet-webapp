@@ -7,28 +7,23 @@ on:
       - main
 jobs:
   Deploy:
-
     runs-on: ubuntu-latest
 
     if: "! contains(toJSON(github.event.commits.*.message), '[skip actions]')"
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-    - name: Checkout repo
-      uses: actions/checkout@v2
+      - name: Initialize
+        run: make github-init
 
-    - name: Initialize
-      run: make github-init
-
-    - name: Deploy
-      env:
-        AWS_NODE_ENDPOINT: ${{ secrets.AWS_NODE_ENDPOINT }}
-        AWS_NODE_ACCESS_KEY: ${{ secrets.AWS_NODE_ACCESS_KEY }}
-        AWS_NODE_ACCESS_SECRET: ${{ secrets.AWS_NODE_ACCESS_SECRET }}
-        STAGING_NODE_ENDPOINT: ${{ secrets.STAGING_NODE_ENDPOINT }}
-        STAGING_NODE_ACCESS_KEY: ${{ secrets.STAGING_NODE_ACCESS_KEY }}
-        STAGING_NODE_ACCESS_SECRET: ${{ secrets.STAGING_NODE_ACCESS_SECRET }}
-        BLOCKLET_REGISTRY: ${{ secrets.BLOCKLET_REGISTRY }}
-        BLOCKLET_REGISTRY_SK: ${{ secrets.BLOCKLET_REGISTRY_SK }}
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      run: bash ./tools/publish.sh
+      - name: Deploy
+        env:
+          STAGING_NODE_ENDPOINT: ${{ secrets.STAGING_NODE_ENDPOINT }}
+          STAGING_NODE_ACCESS_KEY: ${{ secrets.STAGING_NODE_ACCESS_KEY }}
+          STAGING_NODE_ACCESS_SECRET: ${{ secrets.STAGING_NODE_ACCESS_SECRET }}
+          BLOCKLET_REGISTRY: ${{ secrets.BLOCKLET_REGISTRY }}
+          BLOCKLET_REGISTRY_SK: ${{ secrets.BLOCKLET_REGISTRY_SK }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: bash ./tools/publish.sh
