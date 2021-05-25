@@ -12,7 +12,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
 import Auth from '@arcblock/did-react/lib/Auth';
-import Toast from '@arcblock/ux/lib/Toast';
 import Button from '@arcblock/ux/lib/Button';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
@@ -24,8 +23,6 @@ export default function ClaimToken({ token }) {
   const info = useTokenContext();
 
   const { enqueueSnackbar } = useSnackbar();
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [claimOpen, setClaimOpen] = useState(false);
   const [type, setType] = useState('hour');
@@ -89,8 +86,6 @@ export default function ClaimToken({ token }) {
           </ClickAwayListener>
         </Paper>
       </Popper>
-      {!!error && <Toast variant="error" message={error} onClose={() => setError('')} />}
-      {!!success && <Toast variant="success" duration={3000} message={success} onClose={() => setSuccess('')} />}
       {claimOpen && (
         <Auth
           responsive
