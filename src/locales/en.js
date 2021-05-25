@@ -16,6 +16,7 @@ module.exports = flat({
   address: 'Address',
   actions: 'Actions',
   noData: 'No Tokens listed yet',
+  donateDesc: 'Scan with DID Wallet to Donate',
   chainHost: {
     label: 'Chain Endpoint',
     placeholder: 'https://beta.abtnetwork.io/api',
