@@ -28,6 +28,9 @@ const GlobalStyle = createGlobalStyle`
   a:hover * {
     text-decoration: none !important;
   }
+  div[role="tooltip"] {
+    z-index: 9999;
+  }
 `;
 
 const InsideApp = () => {
