@@ -13,7 +13,7 @@ module.exports = flat({
   search: 'Search',
   name: 'Name',
   symbol: 'Symbol',
-  address: 'Address',
+  address: 'DID',
   actions: 'Actions',
   noData: 'No Tokens listed yet',
   amount: 'Claimed',
