@@ -9,7 +9,7 @@ author:
 repository:
   type: git
   url: 'git+https://github.com/blocklet/faucet-webapp.git'
-version: 0.1.0
+version: 0.2.0
 license: Apache-2.0
 title: ABT Network Faucet
 files:
@@ -38,7 +38,7 @@ environments: []
 scripts:
   dev: npm run start
 specVersion: 1.1.1
-did: z8ia29UsENBg6tLZUKi2HABj38Cw1LmHZocbQ
+did: z8iZzjfRix3FewZbMxNwcRp1TdUBa32VoLtps
 timeout:
   start: 60
 requirements:
@@ -51,3 +51,4 @@ charging:
   shares: []
 capabilities:
   clusterMode: false
+children: []
