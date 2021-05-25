@@ -36,7 +36,7 @@ export default function HomePage() {
 
   const [pageSize, setNewPageSize] = useLocalStorage('token-page-size', 20);
 
-  const { sortDirections, onSortChange } = usePersistentSort('token', ['asc', '', '', '']);
+  const { sortDirections, onSortChange } = usePersistentSort('token', ['asc', '', '', '', '']);
 
   const onPageSizeChange = (newPageSize) => {
     setNewPageSize(newPageSize);
@@ -118,31 +118,6 @@ export default function HomePage() {
 
   const columns = [
     {
-      title: t('name'),
-      field: 'name',
-      width: 200,
-      defaultSort: sortDirections[0],
-      customSort: (a, b) => {
-        const aSorProperty = a.name;
-        const bSorProperty = b.name;
-
-        if (aSorProperty.toLowerCase() > bSorProperty.toLowerCase()) {
-          return 1;
-        }
-
-        if (aSorProperty.toLowerCase() < bSorProperty.toLowerCase()) {
-          return -1;
-        }
-
-        return 0;
-      },
-      render: (d) => (
-        <Typography component="strong" variant="body1" className="token-name">
-          {d.name}
-        </Typography>
-      ),
-    },
-    {
       title: t('symbol'),
       field: 'symbol',
       width: 60,
@@ -163,9 +138,16 @@ export default function HomePage() {
       defaultSort: sortDirections[3],
     },
     {
+      title: t('chain'),
+      field: 'chainId',
+      width: 30,
+      sorting: true,
+      defaultSort: sortDirections[4],
+    },
+    {
       title: t('actions'),
       sorting: false,
-      width: 90,
+      width: 120,
       render: (d) => <TokenActions key={d._id} token={d} />,
     },
   ];
