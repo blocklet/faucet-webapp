@@ -35,7 +35,13 @@ export default function DonateToken({ token }) {
 
   return (
     <>
-      <Button size="small" onClick={() => setOpen(true)}>
+      <Button
+        variant="contained"
+        size="small"
+        color="primary"
+        rounded
+        onClick={() => setOpen(true)}
+        style={{ marginRight: 16 }}>
         {t('donate')}
       </Button>
       {open && (

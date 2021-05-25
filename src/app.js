@@ -81,9 +81,6 @@ const WrappedApp = withRouter(App);
 export default () => {
   let basename = '/';
 
-  if (window.env && window.env.apiPrefix) {
-    basename = window.env.apiPrefix;
-  }
   if (window.blocklet && window.blocklet.prefix) {
     basename = window.blocklet.prefix;
   }

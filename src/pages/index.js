@@ -162,10 +162,16 @@ export default function HomePage() {
     },
   ];
 
+  let basename = '/';
+  if (window.blocklet && window.blocklet.prefix) {
+    basename = window.blocklet.prefix;
+  }
+
   return (
     <Div maxWidth="lg">
       <div className="header">
-        <Typography component="h2" variant="h5">
+        <Typography component="h2" variant="h5" className="header-title">
+          <img src={`${basename}images/logo.png`} alt="" className="header-logo" />
           {t('title')}
         </Typography>
         <div className="header-addons">
@@ -231,14 +237,26 @@ const Div = styled(Container)`
     justify-content: space-between;
   }
 
-  .header-addons {
+  .header-addons,
+  .header-title {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
 
+  .header-addons {
     .addon-locale {
       margin-left: 16px;
+    }
+  }
+
+  .header-title {
+    .header-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      margin-right: 8px;
     }
   }
 
