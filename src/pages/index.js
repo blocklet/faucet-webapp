@@ -13,6 +13,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import IconAdd from '@material-ui/icons/AddOutlined';
 
 import Button from '@arcblock/ux/lib/Button';
+import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
 import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Center from '@arcblock/ux/lib/Center';
@@ -119,7 +120,7 @@ export default function HomePage() {
     {
       title: t('name'),
       field: 'name',
-      width: 360,
+      width: 200,
       defaultSort: sortDirections[0],
       customSort: (a, b) => {
         const aSorProperty = a.name;
@@ -144,6 +145,7 @@ export default function HomePage() {
     {
       title: t('symbol'),
       field: 'symbol',
+      width: 60,
       sorting: true,
       defaultSort: sortDirections[1],
     },
@@ -152,6 +154,13 @@ export default function HomePage() {
       field: 'address',
       width: 120,
       defaultSort: sortDirections[2],
+      render: (d) => (d.address ? <ClickToCopy>{d.address}</ClickToCopy> : '-'),
+    },
+    {
+      title: t('amount'),
+      field: 'faucetAmount',
+      width: 30,
+      defaultSort: sortDirections[3],
     },
     {
       title: t('actions'),
@@ -175,7 +184,7 @@ export default function HomePage() {
         </Typography>
         <div className="header-addons">
           <Button onClick={() => setShowAddDialog(true)} variant="contained" color="primary" size="small" rounded>
-            <IconAdd />
+            <IconAdd fontSize="small" />
             {t('add')}
           </Button>
           <LocaleSelector size={28} showText={false} className="addon-locale" />

@@ -6,8 +6,8 @@ import { useSnackbar } from 'notistack';
 
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
+// import Paper from '@material-ui/core/Paper';
+ort Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
@@ -61,7 +61,7 @@ export default function ClaimToken({ token }) {
         data-cy="open-install-menu"
         onClick={onToggle}>
         {t('claim')}
-        <ArrowDropDownIcon />
+        <ArrowDropDownIcon fontSize="small" />
       </Button>
       <Popper
         open={dropdownOpen}

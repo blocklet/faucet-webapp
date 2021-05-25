@@ -16,6 +16,7 @@ module.exports = flat({
   address: 'DID',
   actions: '动作',
   noData: '还没有任何通证',
+  amount: '领取数量',
   donateDesc: '用 DID Wallet 扫码完成捐赠',
   chainHost: {
     label: '链的 API',
