@@ -4,6 +4,7 @@ module.exports = flat({
   title: 'ABT Network Faucet',
   add: 'Add Token',
   added: 'Token added successfully!',
+  claimed: 'Token claimed successfully!',
   cancel: 'Cancel',
   submit: 'Submit',
   donate: 'Donate',
@@ -22,5 +23,18 @@ module.exports = flat({
   tokenAddress: {
     label: 'Token ID',
     placeholder: 'Leave empty to add primary token',
+  },
+  type: {
+    hour: '{amount} {symbol} / hour',
+    day: '{amount} {symbol} / day',
+    week: '{amount} {symbol} / week',
+  },
+  dialog: {
+    claim: {
+      title: '需要扫码',
+      scan: '用你的 DID 钱包扫描下面的二维码以领取通证',
+      confirm: '请在 DID 钱包上确认',
+      success: '领取成功',
+    },
   },
 });

@@ -26,3 +26,16 @@ export function formatTimeFromNow(date = new Date()) {
 
   return diffDay > 3 ? formatToDate(date) : startDate.fromNow();
 }
+
+export function getWebWalletUrl() {
+  try {
+    const url = window.localStorage.getItem('wallet_url');
+    if (url) {
+      return url;
+    }
+  } catch (err) {
+    // Do nothing
+  }
+
+  return '';
+}

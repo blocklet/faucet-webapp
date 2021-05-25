@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { useSnackbar } from 'notistack';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import MaterialTable from 'material-table';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -18,6 +17,8 @@ import Button from '@arcblock/ux/lib/Button';
 import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Center from '@arcblock/ux/lib/Center';
+
+import MaterialTable from 'material-table';
 
 import ConfirmDialog from '../components/confirm';
 import TableIcons from '../components/table-icons';

@@ -1,3 +1,4 @@
+const sortBy = require('lodash/sortBy');
 const Client = require('@ocap/client');
 const { BN } = require('@ocap/util');
 
@@ -5,38 +6,23 @@ const Token = require('../states/token');
 const History = require('../states/history');
 
 const logger = require('../libs/logger');
-const { wallet } = require('../libs/auth');
-
-const types = {
-  hour: {
-    duration: 60 * 60 * 1000,
-    amount: 10,
-  },
-  day: {
-    duration: 24 * 60 * 60 * 1000,
-    amount: 100,
-  },
-  week: {
-    duration: 7 * 24 * 60 * 60 * 1000,
-    amount: 300,
-  },
-};
+const { wallet, types } = require('../libs/auth');
 
 module.exports = {
-  action: 'acquire-asset',
+  action: 'claim',
   claims: {
     profile: async ({ extraParams: { id, type } }) => {
       const token = await Token.findOne({ _id: id });
       if (!token) {
-        throw new Error('Can not faucet on none existing token');
+        throw new Error('Can not claim none existing token');
       }
       if (!types[type]) {
-        throw new Error('Unsupported faucet period type');
+        throw new Error('Unsupported claim period type');
       }
 
       return {
         fields: ['fullName'],
-        description: 'Please provide your profile to complete faucet',
+        description: 'Please provide your profile to complete claim',
       };
     },
   },
@@ -47,7 +33,8 @@ module.exports = {
     const client = new Client(token.chainHost);
 
     // Rate limit
-    const [history] = await History.find({ userDid, tokenId: id }).sort({ createdAt: -1 }).limit(1);
+    const list = await History.find({ userDid, tokenId: id });
+    const [history] = sortBy(list, 'createdAt').reverse();
     if (history && history.nextTimeMs < now) {
       throw new Error('Too many request, please come back later');
     }
@@ -95,7 +82,7 @@ module.exports = {
     };
 
     // Save history
-    logger.info('faucet done', item);
+    logger.info('claim done', item);
     await History.insert(item);
 
     // Update faucet stats

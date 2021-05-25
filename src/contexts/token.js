@@ -10,13 +10,15 @@ const { Provider, Consumer } = TokenContext;
 function TokenProvider({ children }) {
   const [, setHasError] = useState(false);
   const [tokens, setTokens] = useState(null);
+  const [env, setEnv] = useState(null);
 
   const state = useAsyncRetry(async () => {
     try {
       // eslint-disable-next-line no-shadow
-      const { data: tokens } = await client.get('/api/tokens');
+      const [{ data: tokens }, { data: env }] = await Promise.all([client.get('/api/tokens'), client.get('/api/env')]);
       setTokens(tokens);
-      return { tokens };
+      setEnv(env);
+      return { tokens, env };
     } catch (err) {
       setHasError(true);
       return { tokens: [] };
@@ -35,6 +37,7 @@ function TokenProvider({ children }) {
     error: state.error,
     refresh: state.retry,
     data: items,
+    env,
     api: client,
   };
 

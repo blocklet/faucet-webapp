@@ -44,6 +44,7 @@ export default function ConfirmDialog({
         setOpen(false);
       } catch (err) {
         setError(formatError(err));
+        // eslint-disable-next-line no-console
         console.error(err);
       } finally {
         setLoading(false);

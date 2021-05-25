@@ -12,7 +12,7 @@ if (isDevelopment && process.env.ABT_NODE) {
 
 const { server } = require('./functions/app');
 
-const port = parseInt(process.env.BLOCKLET_PORT || process.env.APP_PORT, 10) || 3000;
+const port = parseInt(process.env.BLOCKLET_PORT, 10);
 server.listen(port, (err) => {
   if (err) throw err;
 

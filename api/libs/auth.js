@@ -34,4 +34,18 @@ module.exports = {
   authenticator,
   handlers,
   wallet,
+  types: {
+    hour: {
+      duration: 60 * 60 * 1000,
+      amount: 10,
+    },
+    day: {
+      duration: 24 * 60 * 60 * 1000,
+      amount: 100,
+    },
+    week: {
+      duration: 7 * 24 * 60 * 60 * 1000,
+      amount: 300,
+    },
+  },
 };

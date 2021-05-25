@@ -1,5 +1,11 @@
 import React from 'react';
 
-export default function TokenActions() {
-  return <p>action</p>;
+import ClaimToken from './claim';
+
+export default function TokenActions(props) {
+  return (
+    <>
+      <ClaimToken {...props} />
+    </>
+  );
 }
