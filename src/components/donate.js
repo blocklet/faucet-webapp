@@ -41,7 +41,7 @@ export default function DonateToken({ token }) {
         color="primary"
         rounded
         onClick={() => setOpen(true)}
-        style={{ marginRight: 16 }}>
+        style={{ marginLeft: 16 }}>
         {t('donate')}
       </Button>
       {open && (

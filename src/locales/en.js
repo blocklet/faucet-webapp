@@ -34,9 +34,9 @@ module.exports = flat({
   dialog: {
     claim: {
       title: '需要扫码',
-      scan: '用你的 DID 钱包扫描下面的二维码以领取通证',
+      scan: '用你的 DID 钱包扫描下面的二维码以领取 {amount} {symbol}',
       confirm: '请在 DID 钱包上确认',
-      success: '领取成功',
+      success: '{amount} {symbol} 已经发送到你钱包',
     },
   },
 });

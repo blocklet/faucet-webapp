@@ -1,15 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSnackbar } from 'notistack';
-
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 
 import Auth from '@arcblock/did-react/lib/Auth';
 import Button from '@arcblock/ux/lib/Button';
@@ -23,21 +16,8 @@ export default function ClaimToken({ token }) {
   const info = useTokenContext();
 
   const { enqueueSnackbar } = useSnackbar();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [claimOpen, setClaimOpen] = useState(false);
   const [type, setType] = useState('hour');
-
-  const anchorRef = useRef(null);
-  const onToggle = () => {
-    setDropdownOpen((prevOpen) => !prevOpen);
-  };
-  const onClose = (e) => {
-    if (anchorRef.current && anchorRef.current.contains(e.target)) {
-      return;
-    }
-
-    setDropdownOpen(false);
-  };
 
   const onClaimStart = (x) => {
     setType(x);
@@ -48,6 +28,7 @@ export default function ClaimToken({ token }) {
   };
 
   const webWalletUrl = getWebWalletUrl();
+  const vars = { ...info.env.types[type], ...token };
 
   return (
     <React.Fragment>
@@ -57,34 +38,10 @@ export default function ClaimToken({ token }) {
         color="primary"
         aria-label="split button"
         rounded
-        ref={anchorRef}
         data-cy="open-install-menu"
-        onClick={onToggle}>
+        onClick={() => onClaimStart('day')}>
         {t('claim')}
-        <ArrowDropDownIcon fontSize="small" />
       </Button>
-      <Popper
-        open={dropdownOpen}
-        anchorEl={anchorRef.current}
-        placement="bottom-end"
-        disablePortal={false}
-        className="popper">
-        <Paper>
-          <ClickAwayListener onClickAway={onClose}>
-            <MenuList id="split-button-menu">
-              <MenuItem data-cy="open-install-form" onClick={() => onClaimStart('hour')}>
-                {t('type.hour', { ...token, ...info.env.types.hour })}
-              </MenuItem>
-              <MenuItem data-cy="open-install-form" onClick={() => onClaimStart('day')}>
-                {t('type.day', { ...token, ...info.env.types.day })}
-              </MenuItem>
-              <MenuItem data-cy="open-install-form" onClick={() => onClaimStart('week')}>
-                {t('type.week', { ...token, ...info.env.types.week })}
-              </MenuItem>
-            </MenuList>
-          </ClickAwayListener>
-        </Paper>
-      </Popper>
       {claimOpen && (
         <Auth
           responsive
@@ -97,10 +54,10 @@ export default function ClaimToken({ token }) {
           onClose={() => setClaimOpen(false)}
           locale={locale}
           messages={{
-            title: t('dialog.claim.title'),
-            scan: t('dialog.claim.scan'),
-            confirm: t('dialog.claim.confirm'),
-            success: t('dialog.claim.success'),
+            title: t('dialog.claim.title', vars),
+            scan: t('dialog.claim.scan', vars),
+            confirm: t('dialog.claim.confirm', vars),
+            success: t('dialog.claim.success', vars),
           }}
           extraParams={{ type, id: token._id }}
         />

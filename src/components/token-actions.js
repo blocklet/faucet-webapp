@@ -6,8 +6,8 @@ import DonateToken from './donate';
 export default function TokenActions(props) {
   return (
     <>
-      <DonateToken {...props} />
       <ClaimToken {...props} />
+      <DonateToken {...props} />
     </>
   );
 }

@@ -34,9 +34,9 @@ module.exports = flat({
   dialog: {
     claim: {
       title: 'DID Wallet Required',
-      scan: 'Scan following QRCode to claim tokens',
+      scan: 'Scan following QRCode to claim {amount} {symbol}',
       confirm: 'Review the operation on your DID Wallet',
-      success: 'Token claimed successfully',
+      success: '{amount} {symbol} sent to your wallet',
     },
   },
 });
