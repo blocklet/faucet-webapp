@@ -1,3 +1,7 @@
+## 0.2.1 (May 26, 2021)
+
+- fix screenshots
+
 ## 0.2.0 (May 26, 2021)
 
 - chore: add screenshot
