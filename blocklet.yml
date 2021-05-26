@@ -9,7 +9,7 @@ author:
 repository:
   type: git
   url: 'git+https://github.com/blocklet/faucet-webapp.git'
-version: 0.2.1
+version: 0.2.2
 license: Apache-2.0
 title: ABT Network Faucet
 files:
