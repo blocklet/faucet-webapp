@@ -1,3 +1,7 @@
+## 0.2.5 (May 27, 2021)
+
+- fix: reorganize files
+
 ## 0.2.4 (May 27, 2021)
 
 - fix: did-auth logo
