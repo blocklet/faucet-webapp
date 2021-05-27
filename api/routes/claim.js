@@ -35,7 +35,7 @@ module.exports = {
     // Rate limit
     const list = await History.find({ userDid, tokenId: id });
     const [history] = sortBy(list, 'createdAt').reverse();
-    if (history && history.nextTimeMs < now) {
+    if (history && history.nextTimeMs > now) {
       throw new Error('Too many request, please come back later');
     }
 
