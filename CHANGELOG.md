@@ -1,3 +1,7 @@
+## 0.2.4 (May 27, 2021)
+
+- fix: did-auth logo
+
 ## 0.2.3 (May 27, 2021)
 
 - fix: rate limit

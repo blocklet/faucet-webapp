@@ -18,7 +18,7 @@
     "url": "https://github.com/blocklet/faucet-webapp/issues",
     "email": "shijun@arcblock.io"
   },
-  "version": "0.2.3",
+  "version": "0.2.4",
   "dependencies": {
     "@arcblock/did": "^1.10.7",
     "@arcblock/did-auth": "^1.10.7",
