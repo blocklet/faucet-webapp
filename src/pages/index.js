@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/destructuring-assignment */
+import get from 'lodash/get';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -45,14 +46,12 @@ export default function HomePage() {
   const onAddToken = async (data) => {
     try {
       await info.api.post('/api/tokens', data);
+      setShowAddDialog(false);
       enqueueSnackbar(t('added'), { autoHideDuration: 5000, variant: 'success' });
       info.refresh();
     } catch (err) {
-      enqueueSnackbar(formatError(err), { autoHideDuration: 5000, variant: 'error' });
-      // eslint-disable-next-line no-console
-      console.error('token add failed', err);
-    } finally {
       setShowAddDialog(false);
+      enqueueSnackbar(get(err, 'response.data.error', formatError(err)), { autoHideDuration: 5000, variant: 'error' });
     }
   };
 
@@ -157,6 +156,10 @@ export default function HomePage() {
     basename = window.blocklet.prefix;
   }
 
+  const onAdd = () => {
+    setShowAddDialog(true);
+  };
+
   return (
     <Div maxWidth="lg">
       <div className="header">
@@ -165,7 +168,7 @@ export default function HomePage() {
           {t('title')}
         </Typography>
         <div className="header-addons">
-          <Button onClick={() => setShowAddDialog(true)} variant="contained" color="primary" size="small" rounded>
+          <Button onClick={onAdd} variant="contained" color="primary" size="small" rounded>
             <IconAdd fontSize="small" />
             {t('add')}
           </Button>

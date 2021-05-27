@@ -40,14 +40,10 @@ const InsideApp = () => {
   dayjs.extend(relativeTime);
 
   return (
-    <>
-      <CssBaseline />
-      <GlobalStyle />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Redirect to="/" />
-      </Switch>
-    </>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Redirect to="/" />
+    </Switch>
   );
 };
 
@@ -58,24 +54,26 @@ export const App = () => {
   };
 
   return (
-    <SnackbarProvider
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      ref={notificationRef}
-      action={(key) => (
-        <IconButton key="close" aria-label="close" color="inherit" onClick={onClickDismiss(key)}>
-          <CloseIcon style={{ fontSize: 16 }} />
-        </IconButton>
-      )}>
-      <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <LocaleProvider translations={translations}>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <LocaleProvider translations={translations}>
+          <CssBaseline />
+          <GlobalStyle />
+          <SnackbarProvider
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            ref={notificationRef}
+            action={(key) => (
+              <IconButton key="close" aria-label="close" color="inherit" onClick={onClickDismiss(key)}>
+                <CloseIcon style={{ fontSize: 16 }} />
+              </IconButton>
+            )}>
             <TokenProvider>
               <InsideApp />
             </TokenProvider>
-          </LocaleProvider>
-        </ThemeProvider>
-      </MuiThemeProvider>
-    </SnackbarProvider>
+          </SnackbarProvider>
+        </LocaleProvider>
+      </ThemeProvider>
+    </MuiThemeProvider>
   );
 };
 

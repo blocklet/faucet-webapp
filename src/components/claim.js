@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSnackbar } from 'notistack';
 
 import Auth from '@arcblock/did-react/lib/Auth';
 import Button from '@arcblock/ux/lib/Button';
@@ -15,7 +14,6 @@ export default function ClaimToken({ token }) {
   const { t, locale } = useLocaleContext();
   const info = useTokenContext();
 
-  const { enqueueSnackbar } = useSnackbar();
   const [claimOpen, setClaimOpen] = useState(false);
   const [type, setType] = useState('hour');
 
@@ -23,9 +21,7 @@ export default function ClaimToken({ token }) {
     setType(x);
     setClaimOpen(true);
   };
-  const onClaimSuccess = () => {
-    enqueueSnackbar(t('claimed'), { autoHideDuration: 5000, variant: 'success' });
-  };
+  const onClaimSuccess = () => {};
 
   const webWalletUrl = getWebWalletUrl();
   const vars = { ...info.env.types[type], ...token };
