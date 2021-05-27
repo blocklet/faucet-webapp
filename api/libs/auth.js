@@ -13,7 +13,7 @@ const authenticator = new WalletAuthenticator({
   appInfo: ({ baseUrl }) => ({
     name: process.env.BLOCKLET_APP_NAME,
     description: process.env.BLOCKLET_APP_DESCRIPTION,
-    icon: `${process.env.BLOCKLET_PORT}/images/logo.png`,
+    icon: `${baseUrl}/images/logo.png`,
     link: baseUrl,
   }),
   chainInfo: async ({ id }) => {
