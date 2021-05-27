@@ -2,11 +2,11 @@ const sortBy = require('lodash/sortBy');
 const Client = require('@ocap/client');
 const { BN } = require('@ocap/util');
 
-const Token = require('../states/token');
-const History = require('../states/history');
+const Token = require('../../states/token');
+const History = require('../../states/history');
 
-const logger = require('../libs/logger');
-const { wallet, types } = require('../libs/auth');
+const logger = require('../../libs/logger');
+const { wallet, types } = require('../../libs/auth');
 
 module.exports = {
   action: 'claim',
