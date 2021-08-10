@@ -5,7 +5,7 @@ const Base = require('./base');
  * - chainHost: String
  * - chainId: String
  * - name: !String
- * - address: String
+ * - address: !String
  * - symbol: !String
  * - decimal: !String
  * - faucetAmount: Number
