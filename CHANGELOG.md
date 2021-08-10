@@ -1,3 +1,7 @@
+## 0.2.6 (August 10, 2021)
+
+- chore: bump deps to latest
+
 ## 0.2.5 (May 27, 2021)
 
 - fix: reorganize files
