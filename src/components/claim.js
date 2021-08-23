@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Auth from '@arcblock/did-react/lib/Auth';
+import DidConnect from '@arcblock/did-connect/lib/Connect';
 import Button from '@arcblock/ux/lib/Button';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
@@ -39,7 +39,7 @@ export default function ClaimToken({ token }) {
         {t('claim')}
       </Button>
       {claimOpen && (
-        <Auth
+        <DidConnect
           responsive
           className="faucet-auth"
           action="claim"
