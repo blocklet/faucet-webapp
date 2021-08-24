@@ -1,3 +1,7 @@
+## 0.2.7 (August 23, 2021)
+
+- chore: replace did-react with did-connect
+
 ## 0.2.6 (August 10, 2021)
 
 - chore: bump deps to latest
