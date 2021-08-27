@@ -12,30 +12,12 @@ TableStyle.propTypes = {
 };
 
 const Div = styled.div`
-  .MuiPaper-root {
-    box-shadow: none !important;
-    border: none !important;
-    border-radius: 0 !important;
-    background: transparent;
-  }
   .MuiToolbar-root {
     background: transparent;
-    padding-left: 0;
-    display: none;
   }
-
-  .MuiTableHead-root th {
-    background: transparent;
-  }
-
-  .MuiTableRow-root {
-    border: none !important;
-  }
-
   .MuiTableCell-root {
+    padding-left: 16px;
     padding-right: 16px;
-    &:last-of-type {
-      padding-right: 0;
-    }
+    border-bottom-width: 1px;
   }
 `;

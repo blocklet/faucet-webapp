@@ -18,7 +18,7 @@
     "url": "https://github.com/blocklet/faucet-webapp/issues",
     "email": "shijun@arcblock.io"
   },
-  "version": "0.2.7",
+  "version": "0.2.8",
   "dependencies": {
     "@arcblock/did": "^1.12.9",
     "@arcblock/did-auth": "^1.12.9",
@@ -50,7 +50,7 @@
     "fs-extra": "^10.0.0",
     "http-proxy-middleware": "^0.19.1",
     "lodash": "^4.17.21",
-    "material-table": "1.36.0",
+    "material-table": "^1.36.0",
     "morgan": "^1.10.0",
     "nocache": "^2.1.0",
     "notistack": "^1.0.9",

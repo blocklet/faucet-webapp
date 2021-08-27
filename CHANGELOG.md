@@ -1,3 +1,7 @@
+## 0.2.8 (八月 25, 2021)
+
+- fix: broken styles caused by material-table
+
 ## 0.2.7 (August 23, 2021)
 
 - chore: replace did-react with did-connect
