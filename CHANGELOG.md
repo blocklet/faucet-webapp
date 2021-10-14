@@ -1,3 +1,7 @@
+## 0.2.9 (十月 14, 2021)
+
+- feat: use action-workflow
+
 ## 0.2.8 (八月 25, 2021)
 
 - fix: broken styles caused by material-table
