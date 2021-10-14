@@ -5,25 +5,33 @@ on:
     branches:
       - master
       - main
+
 jobs:
   Deploy:
     runs-on: ubuntu-latest
 
-    if: "! contains(toJSON(github.event.commits.*.message), '[skip actions]')"
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Initialize
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+
+      - name: Init
         run: make github-init
 
-      - name: Deploy
-        env:
-          STAGING_NODE_ENDPOINT: ${{ secrets.STAGING_NODE_ENDPOINT }}
-          STAGING_NODE_ACCESS_KEY: ${{ secrets.STAGING_NODE_ACCESS_KEY }}
-          STAGING_NODE_ACCESS_SECRET: ${{ secrets.STAGING_NODE_ACCESS_SECRET }}
-          BLOCKLET_REGISTRY: ${{ secrets.BLOCKLET_REGISTRY }}
-          BLOCKLET_REGISTRY_SK: ${{ secrets.ABTNODE_DEV_SK }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        run: bash ./tools/publish.sh
+      - name: Blocklet workflow
+        uses: blocklet/action-workflow@v0.2.2
+        with:
+          skip-upload: false
+          skip-deploy: false
+          bundle-command: yarn bundle
+          registry-endpoint: ${{ secrets.BLOCKLET_REGISTRY }}
+          developer-sk: ${{ secrets.ABTNODE_DEV_SK }}
+          abtnode-endpoint: ${{ secrets.STAGING_NODE_ENDPOINT }}
+          access-key: ${{ secrets.STAGING_NODE_ACCESS_KEY }}
+          access-secret: ${{ secrets.STAGING_NODE_ACCESS_SECRET }}
+          slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
