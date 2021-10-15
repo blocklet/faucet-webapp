@@ -8,14 +8,17 @@ build:
 
 init: install dep
 	@echo "Initializing the repo..."
-	@npm install -g @abtnode/cli
+	@yarn global add @abtnode/cli
+
+setenv:
+	@echo "Setup .env file..."
+	@echo "SKIP_PREFLIGHT_CHECK=true" > .env
 
 travis-init:
 	@echo "Initialize software required for travis (normally ubuntu software)"
 
-github-init: install dep
+github-init: install dep setenv
 	@echo "Initialize software required for travis (normally ubuntu software)"
-	@sudo npm install -g @abtnode/cli
 
 install:
 	@echo "Install software required for this repo..."
