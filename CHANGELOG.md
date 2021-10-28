@@ -1,3 +1,7 @@
+## 0.2.10 (十月 28, 2021)
+
+- chore: update deps
+
 ## 0.2.9 (十月 14, 2021)
 
 - feat: use action-workflow
