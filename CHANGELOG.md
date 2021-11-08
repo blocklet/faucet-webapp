@@ -1,3 +1,7 @@
+## 0.2.11 (十一月 08, 2021)
+
+- chore: update deps
+
 ## 0.2.10 (十月 28, 2021)
 
 - chore: update deps
