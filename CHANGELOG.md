@@ -1,3 +1,7 @@
+## 0.2.13 (December 03, 2021)
+
+- chore: update arcblock-related deps
+
 ## 0.2.12 (November 24, 2021)
 
 - upgrade arcblock related dependencies
