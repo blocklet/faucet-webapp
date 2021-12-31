@@ -1,3 +1,7 @@
+## 0.2.15 (December 24, 2021)
+
+- chore: update docs and init script
+
 ## 0.2.14 (十二月 07, 2021)
 
 - chore: upgrade blocklet.yml

@@ -8,7 +8,7 @@ build:
 
 init: install dep
 	@echo "Initializing the repo..."
-	@yarn global add @abtnode/cli
+	@yarn global add @blocklet/cli
 
 setenv:
 	@echo "Setup .env file..."
