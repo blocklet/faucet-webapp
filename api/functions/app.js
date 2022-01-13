@@ -10,7 +10,8 @@ const favicon = require('serve-favicon');
 const fallback = require('express-history-api-fallback');
 
 const { handlers } = require('../libs/auth');
-const claimRoutes = require('../routes/auth/claim');
+const claimRoutesAuth = require('../routes/auth/claim');
+const claimRoutes = require('../routes/claim');
 const envRoutes = require('../routes/env');
 const tokenRoutes = require('../routes/token');
 
@@ -41,9 +42,10 @@ app.use(
   })
 );
 
-handlers.attach({ app, ...claimRoutes });
+handlers.attach({ app, ...claimRoutesAuth });
 
 const router = express.Router();
+router.use('/api', claimRoutes);
 router.use('/api', envRoutes);
 router.use('/api', tokenRoutes);
 app.use(router);

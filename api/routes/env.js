@@ -4,6 +4,6 @@ const { wallet, types } = require('../libs/auth');
 
 const router = express.Router();
 
-router.get('/env', async (req, res) => res.json({ address: wallet.toAddress(), types }));
+router.get('/env', async (req, res) => res.json({ address: wallet.address, types }));
 
 module.exports = router;

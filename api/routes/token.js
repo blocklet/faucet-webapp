@@ -39,19 +39,12 @@ router.post('/tokens', async (req, res) => {
     return res.status(400).json({ error: `${chainHost} is not valid chain endpoint` });
   }
 
-  let token;
-  if (tokenAddress) {
-    const result = await client.getTokenState({ address: tokenAddress });
-    if (!result.state) {
-      return res.status(400).json({ error: `token ${tokenAddress} not found on chain ${chainHost}` });
-    }
-
-    token = result.state;
-  } else {
-    const result = await client.getForgeState();
-    // eslint-disable-next-line prefer-destructuring
-    token = result.state.token;
+  const result = await client.getTokenState({ address: tokenAddress });
+  if (!result.state) {
+    return res.status(400).json({ error: `token ${tokenAddress} not found on chain ${chainHost}` });
   }
+
+  const token = result.state;
 
   const exist = await Token.exists({ chainId: info.network, address: tokenAddress });
   if (exist) {
@@ -59,7 +52,7 @@ router.post('/tokens', async (req, res) => {
   }
 
   // ensure the faucet webapp account exist on the token chain
-  const { state: account } = await client.getAccountState({ address: wallet.toAddress() });
+  const { state: account } = await client.getAccountState({ address: wallet.address });
   if (!account) {
     await client.declare({ moniker: 'faucet-webapp', wallet });
   }
