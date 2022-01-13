@@ -93,8 +93,12 @@ router.post(
   ensureSignedResponse,
   ensureSignedRequest({ fieldPk: 'userPk', fieldInfo: 'userInfo', enforceTimestamp: true }),
   async (req, res) => {
-    const result = await fund({ userDid: req.sender.address, id: req.payload.token, type: 'day' });
-    return res.json(result);
+    try {
+      const result = await fund({ userDid: req.sender.address, id: req.payload.token, type: 'day' });
+      return res.json(result);
+    } catch (err) {
+      return res.json({ error: err.message });
+    }
   }
 );
 
