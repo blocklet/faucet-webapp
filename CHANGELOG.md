@@ -1,3 +1,7 @@
+## 0.2.17 (January 13, 2022)
+
+- fix(api): error handling in claim api
+
 ## 0.2.16 (January 13, 2022)
 
 - feat(api): support claim from apps
