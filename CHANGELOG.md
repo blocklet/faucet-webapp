@@ -1,3 +1,8 @@
+## 0.2.16 (January 13, 2022)
+
+- feat(api): support claim from apps
+- chore(deps): bump chain and blocklet server sdk to latest
+
 ## 0.2.15 (December 24, 2021)
 
 - chore: update docs and init script
