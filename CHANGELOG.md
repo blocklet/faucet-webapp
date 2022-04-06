@@ -1,3 +1,8 @@
+## 0.2.18 (四月 06, 2022)
+
+- chore: update deps
+- chore: remove getWalletUrl
+
 ## 0.2.17 (January 13, 2022)
 
 - fix(api): error handling in claim api
