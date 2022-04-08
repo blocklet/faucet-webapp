@@ -8,7 +8,6 @@ import Button from '@arcblock/ux/lib/Button';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
 import { useTokenContext } from '../contexts/token';
-import { getWebWalletUrl } from '../libs/util';
 
 export default function ClaimToken({ token }) {
   const { t, locale } = useLocaleContext();
@@ -22,8 +21,6 @@ export default function ClaimToken({ token }) {
     setClaimOpen(true);
   };
   const onClaimSuccess = () => {};
-
-  const webWalletUrl = getWebWalletUrl();
   const vars = { ...info.env.types[type], ...token };
 
   return (
@@ -35,7 +32,8 @@ export default function ClaimToken({ token }) {
         aria-label="split button"
         rounded
         data-cy="open-install-menu"
-        onClick={() => onClaimStart('day')}>
+        onClick={() => onClaimStart('day')}
+      >
         {t('claim')}
       </Button>
       {claimOpen && (
@@ -45,7 +43,6 @@ export default function ClaimToken({ token }) {
           action="claim"
           checkFn={info.api.get}
           checkTimeout={5 * 60 * 1000}
-          webWalletUrl={webWalletUrl}
           onSuccess={onClaimSuccess}
           onClose={() => setClaimOpen(false)}
           locale={locale}
