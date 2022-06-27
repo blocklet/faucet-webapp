@@ -1,3 +1,8 @@
+## 0.2.19 (June 27, 2022)
+
+- fix: resize the logo
+- [skip ci] Update README.md
+
 ## 0.2.18 (四月 06, 2022)
 
 - chore: update deps

@@ -8,8 +8,8 @@ author:
   email: shijun@arcblock.io
 repository:
   type: git
-  url: 'git+https://github.com/blocklet/faucet-webapp.git'
-version: 0.2.18
+  url: git+https://github.com/blocklet/faucet-webapp.git
+version: 0.2.19
 license: Apache-2.0
 title: ABT Network Faucet
 files:
@@ -22,10 +22,10 @@ files:
 group: dapp
 main: api/index.js
 logo: logo.png
-community: 'https://community.arcblockio.cn'
+community: https://community.arcblockio.cn
 support: support@arcblock.io
-documentation: 'https://docs.arcblock.io'
-homepage: 'https://github.com/blocklet/faucet-webapp'
+documentation: https://docs.arcblock.io
+homepage: https://github.com/blocklet/faucet-webapp
 interfaces:
   - type: web
     name: publicUrl
@@ -41,7 +41,7 @@ screenshots:
 environments: []
 scripts:
   dev: npm run start
-specVersion: 1.2.4
+specVersion: 1.2.7
 did: z8iZzjfRix3FewZbMxNwcRp1TdUBa32VoLtps
 timeout:
   start: 60
