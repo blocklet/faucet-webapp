@@ -1,3 +1,8 @@
+## 0.2.20 (October 30, 2022)
+
+- upgrade deps
+- [skip ci] Update README.md
+
 ## 0.2.19 (June 27, 2022)
 
 - fix: resize the logo
