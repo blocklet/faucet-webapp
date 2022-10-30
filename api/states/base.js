@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const { promisify } = require('util');
-const DataStore = require('@nedb/core');
+const { DataStore } = require('@nedb/core');
 
 if (!process.env.BLOCKLET_DATA_DIR) {
   throw new Error('valid BLOCKLET_DATA_DIR env is required');
