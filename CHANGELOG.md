@@ -1,3 +1,7 @@
+## 0.2.21 (March 21, 2023)
+
+- ci: update ci and prefix of static file
+
 ## 0.2.20 (October 30, 2022)
 
 - upgrade deps

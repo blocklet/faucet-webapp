@@ -18,7 +18,7 @@
     "url": "https://github.com/blocklet/faucet-webapp/issues",
     "email": "shijun@arcblock.io"
   },
-  "version": "0.2.20",
+  "version": "0.2.21",
   "dependencies": {
     "@arcblock/did": "^1.18.4",
     "@arcblock/did-auth": "^1.18.4",
@@ -76,7 +76,7 @@
     "start:server": "NODE_ENV=development nodemon api/index.js -w api",
     "build:client": "react-scripts build && rm -f build/static/**/*.map",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
-    "bundle:client": "PUBLIC_URL=\"/.blocklet/proxy\" REACT_APP_API_PREFIX=\"\" REACT_APP_APP_NAME=\"ABTNetwork Faucet\" npm run build:client",
+    "bundle:client": "PUBLIC_URL=\"/.blocklet/proxy/z8iZzjfRix3FewZbMxNwcRp1TdUBa32VoLtps\" REACT_APP_API_PREFIX=\"\" REACT_APP_APP_NAME=\"ABTNetwork Faucet\" npm run build:client",
     "bundle:server": "NODE_ENV=production blocklet bundle --zip --create-release",
     "deploy": "npm run bundle && blocklet deploy .blocklet/bundle"
   },
