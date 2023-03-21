@@ -27,7 +27,7 @@ jobs:
         with:
           skip-upload: false
           skip-deploy: false
-          bundle-command: yarn bundle
+          bundle-command: NODE_OPTIONS=--openssl-legacy-provider yarn bundle
           store-endpoint: ${{ secrets.STORE_ENDPOINT_PROD }}
           store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_PROD }}
           abtnode-endpoint: ${{ secrets.STAGING_NODE_ENDPOINT }}
@@ -37,4 +37,3 @@ jobs:
           access-secret: ${{ secrets.STAGING_NODE_ACCESS_SECRET }}
           slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          
