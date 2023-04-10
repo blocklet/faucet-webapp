@@ -1,3 +1,7 @@
+## 0.3.0 (April 10, 2023)
+
+- chore: publish to dev store
+
 ## 0.2.21 (March 21, 2023)
 
 - ci: update ci and prefix of static file
