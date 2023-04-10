@@ -28,8 +28,8 @@ jobs:
           skip-upload: false
           skip-deploy: false
           bundle-command: NODE_OPTIONS=--openssl-legacy-provider yarn bundle
-          store-endpoint: ${{ secrets.STORE_ENDPOINT_PROD }}
-          store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_PROD }}
+          store-endpoint: ${{ secrets.STORE_ENDPOINT_DEV }}
+          store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_DEV }}
           abtnode-endpoint: ${{ secrets.STAGING_NODE_ENDPOINT }}
           deploy-app-did: zNKqftHB7ibZkHrz6Gu37xJXHLKqH5TJYEgd
           deploy-mount-point: /
