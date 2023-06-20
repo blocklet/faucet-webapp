@@ -1,3 +1,7 @@
+## 0.4.0 (June 20, 2023)
+
+- chore: bump deps to latest
+
 ## 0.3.0 (April 10, 2023)
 
 - chore: publish to dev store
