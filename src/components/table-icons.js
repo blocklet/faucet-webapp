@@ -1,18 +1,18 @@
-import Add from '@material-ui/icons/Add';
-import Check from '@material-ui/icons/Check';
-import Delete from '@material-ui/icons/Delete';
-import Clear from '@material-ui/icons/Clear';
-import Export from '@material-ui/icons/SaveAlt';
-import Edit from '@material-ui/icons/Edit';
-import Filter from '@material-ui/icons/Filter';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import NextPage from '@material-ui/icons/ChevronRight';
-import PreviousPage from '@material-ui/icons/ChevronLeft';
-import Search from '@material-ui/icons/Search';
-import SortArrow from '@material-ui/icons/ArrowDropDown';
-import ThirdStateCheck from '@material-ui/icons/Remove';
-import ViewColumn from '@material-ui/icons/ViewColumn';
+import Add from '@mui/icons-material/Add';
+import Check from '@mui/icons-material/Check';
+import Delete from '@mui/icons-material/Delete';
+import Clear from '@mui/icons-material/Clear';
+import Export from '@mui/icons-material/SaveAlt';
+import Edit from '@mui/icons-material/Edit';
+import Filter from '@mui/icons-material/Filter';
+import FirstPage from '@mui/icons-material/FirstPage';
+import LastPage from '@mui/icons-material/LastPage';
+import NextPage from '@mui/icons-material/ChevronRight';
+import PreviousPage from '@mui/icons-material/ChevronLeft';
+import Search from '@mui/icons-material/Search';
+import SortArrow from '@mui/icons-material/ArrowDropDown';
+import ThirdStateCheck from '@mui/icons-material/Remove';
+import ViewColumn from '@mui/icons-material/ViewColumn';
 
 export default {
   Add,

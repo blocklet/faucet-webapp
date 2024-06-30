@@ -7,11 +7,11 @@ import styled from 'styled-components';
 import { useSnackbar } from 'notistack';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import IconAdd from '@material-ui/icons/AddOutlined';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import CircularProgress from '@mui/material/CircularProgress';
+import IconAdd from '@mui/icons-material/AddOutlined';
 
 import Button from '@arcblock/ux/lib/Button';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';

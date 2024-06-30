@@ -5,13 +5,13 @@ import 'dayjs/locale/zh-cn';
 import { SnackbarProvider } from 'notistack';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { LocaleProvider, useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
 import { TokenProvider } from './contexts/token';
@@ -40,10 +40,10 @@ const InsideApp = () => {
   dayjs.extend(relativeTime);
 
   return (
-    <Switch>
+    <Routes>
       <Route exact path="/" component={HomePage} />
-      <Redirect to="/" />
-    </Switch>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
 
@@ -77,8 +77,6 @@ export const App = () => {
   );
 };
 
-const WrappedApp = withRouter(App);
-
 export default () => {
   let basename = '/';
 
@@ -88,7 +86,7 @@ export default () => {
 
   return (
     <Router basename={basename}>
-      <WrappedApp />
+      <App />
     </Router>
   );
 };

@@ -17,7 +17,7 @@ export default function DonateToken({ token }) {
   const content = {
     title: t('donateDesc'),
     description: (
-      <div align="center">
+      <div>
         <QRCode
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
           size={256}
