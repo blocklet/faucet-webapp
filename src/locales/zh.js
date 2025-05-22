@@ -1,6 +1,6 @@
-const flat = require('flat');
+import { flatten } from 'flat';
 
-module.exports = flat({
+export default flatten({
   title: 'ABT 链网水龙头',
   add: '添加通证',
   added: '添加通证成功',

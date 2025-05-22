@@ -4,8 +4,8 @@ keywords:
   - blocklet
   - registry
 author:
-  name: shijun
-  email: shijun@arcblock.io
+  name: blocklet
+  email: blocklet@arcblock.io
 repository:
   type: git
   url: git+https://github.com/blocklet/faucet-webapp.git
