@@ -14,20 +14,28 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set yarn cache
-        uses: c-hive/gha-yarn-cache@v2
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
 
       - name: Init
-        run: make github-init
+        run: pnpm i
 
       - name: Blocklet workflow
         uses: blocklet/action-workflow@v1.1
         with:
           skip-upload: false
           skip-deploy: false
-          bundle-command: NODE_OPTIONS=--openssl-legacy-provider yarn bundle
+          bundle-command: pnpm bundle
           store-endpoint: ${{ secrets.STORE_ENDPOINT_DEV }}
           store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_DEV }}
           abtnode-endpoint: ${{ secrets.STAGING_NODE_ENDPOINT }}
