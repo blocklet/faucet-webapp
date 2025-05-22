@@ -84,7 +84,8 @@ export default function ConfirmDialog({
             color="inherit"
             data-cy="cancel-confirm-dialog"
             rounded
-            size="small">
+            size="small"
+          >
             {cancel || changeLocale('common.cancel')}
           </Button>
         )}
@@ -99,7 +100,8 @@ export default function ConfirmDialog({
           variant="contained"
           data-cy="submit-confirm-dialog"
           autoFocus
-          rounded>
+          rounded
+        >
           {loading && <CircularProgress size={16} />}
           {confirm}
         </Button>

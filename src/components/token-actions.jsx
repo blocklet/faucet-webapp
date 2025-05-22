@@ -9,7 +9,8 @@ export default function TokenActions(props) {
         display: 'flex',
         gap: 1,
         whiteSpace: 'nowrap',
-      }}>
+      }}
+    >
       <ClaimToken {...props} />
       <DonateToken {...props} />
     </Box>

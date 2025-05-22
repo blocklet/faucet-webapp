@@ -60,7 +60,8 @@
     "url-join": "^4.0.1"
   },
   "scripts": {
-    "lint": "eslint api",
+    "lint": "biome lint --write src api",
+    "format": "biome format --write src api",
     "clean": "rm -rf .blocklet",
     "start": "nodemon -w api api/dev.js",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
@@ -88,11 +89,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "biome format --write",
+      "biome lint --fix"
     ],
     "*.{css,less,scss,json,graphql}": [
-      "prettier --write"
+      "biome format --write"
     ]
   },
   "husky": {
@@ -102,6 +103,7 @@
     }
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@vitejs/plugin-react": "^4.4.1",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",

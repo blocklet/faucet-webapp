@@ -26,7 +26,8 @@ export default function DonateToken({ token }) {
           justifyContent: 'center',
           gap: 1,
           p: 2,
-        }}>
+        }}
+      >
         <QRCode
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
           size={200}

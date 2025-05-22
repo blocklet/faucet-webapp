@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const cors = require('cors');
-const path = require('path');
+const path = require('node:path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');

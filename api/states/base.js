@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require('node:path');
 const fs = require('fs-extra');
-const { promisify } = require('util');
+const { promisify } = require('node:util');
 const { DataStore } = require('@nedb/core');
 
 if (!process.env.BLOCKLET_DATA_DIR) {

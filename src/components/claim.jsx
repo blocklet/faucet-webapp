@@ -1,5 +1,5 @@
-import { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Fragment, useState } from 'react';
 
 import DidConnect from '@arcblock/did-connect/lib/Connect';
 import Button from '@arcblock/ux/lib/Button';
@@ -30,7 +30,8 @@ export default function ClaimToken({ token }) {
         aria-label="split button"
         rounded
         data-cy="open-install-menu"
-        onClick={() => onClaimStart('day')}>
+        onClick={() => onClaimStart('day')}
+      >
         {t('claim')}
       </Button>
       <DidConnect
