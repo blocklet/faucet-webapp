@@ -2,10 +2,7 @@
   "name": "faucet-webapp",
   "description": "Faucet for arcblock blockchain network",
   "private": true,
-  "keywords": [
-    "blockchain",
-    "faucet"
-  ],
+  "keywords": ["blockchain", "faucet"],
   "author": "ArcBlock <blocklet@arcblock.io> https://github.com/blocklet",
   "repository": {
     "type": "git",
@@ -72,41 +69,14 @@
     "update:deps": "npx -y taze latest -r -w -n '/@abtnode|@aigne|@arcblock|@blocklet|@did-connect|@did-pay|@did-space|@nft-store|@nft-studio|@ocap|vite-plugin-blocklet/' && pnpm i && pnpm dedupe",
     "bump-version": "make bump-version"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "lint-staged": {
-    "*.{js,jsx,mjs,ts,tsx}": [
-      "biome format --write",
-      "biome lint --fix"
-    ],
-    "*.{css,less,scss,json,graphql}": [
-      "biome format --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "lint-staged"
-    }
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@vitejs/plugin-react": "^4.4.1",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
+    "lefthook": "^1.11.13",
     "nodemon": "^3.1.10",
     "vite": "^6.3.5",
     "vite-plugin-blocklet": "^0.9.32",
