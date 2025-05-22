@@ -9,7 +9,7 @@ author:
 repository:
   type: git
   url: git+https://github.com/blocklet/faucet-webapp.git
-version: 0.4.0
+version: 0.5.0
 license: Apache-2.0
 title: ABT Network Faucet
 files:
@@ -33,6 +33,7 @@ interfaces:
     prefix: '*'
     protocol: http
     port: BLOCKLET_PORT
+    proxyBehavior: service
 screenshots:
   - add.png
   - claim.png
@@ -57,3 +58,4 @@ capabilities:
   component: true
   navigation: true
 components: []
+egress: true
