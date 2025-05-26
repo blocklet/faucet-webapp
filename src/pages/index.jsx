@@ -1,23 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/destructuring-assignment */
 import get from 'lodash/get';
-import React, { useState } from 'react';
-import styled from 'styled-components';
-
+import { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import IconAdd from '@material-ui/icons/AddOutlined';
+import { Container, Typography, TextField, CircularProgress } from '@mui/material';
+import { AddOutlined as IconAdd } from '@mui/icons-material';
 
 import Button from '@arcblock/ux/lib/Button';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
 import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Center from '@arcblock/ux/lib/Center';
+import { styled } from '@arcblock/ux/lib/Theme';
 
 import MaterialTable from 'material-table';
 
@@ -152,7 +148,7 @@ export default function HomePage() {
   ];
 
   let basename = '/';
-  if (window.blocklet && window.blocklet.prefix) {
+  if (window.blocklet?.prefix) {
     basename = window.blocklet.prefix;
   }
 

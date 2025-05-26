@@ -8,16 +8,11 @@ build:
 
 init: install dep
 	@echo "Initializing the repo..."
-	@yarn global add @blocklet/cli
-
-setenv:
-	@echo "Setup .env file..."
-	@echo "SKIP_PREFLIGHT_CHECK=true" > .env
 
 travis-init:
 	@echo "Initialize software required for travis (normally ubuntu software)"
 
-github-init: install dep setenv
+github-init: install dep
 	@echo "Initialize software required for travis (normally ubuntu software)"
 
 install:
@@ -25,7 +20,7 @@ install:
 
 dep:
 	@echo "Install dependencies required for this repo..."
-	@yarn
+	@pnpm i
 
 pre-build: install dep
 	@echo "Running scripts before the build..."

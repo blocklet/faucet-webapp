@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import QRCode from 'qrcode.react';
@@ -8,6 +8,7 @@ import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 
 import ConfirmDialog from './confirm';
 import { useTokenContext } from '../contexts/token';
+import { Box } from '@mui/material';
 
 export default function DonateToken({ token }) {
   const [open, setOpen] = useState(false);
@@ -17,15 +18,24 @@ export default function DonateToken({ token }) {
   const content = {
     title: t('donateDesc'),
     description: (
-      <div align="center">
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 1,
+          p: 2,
+        }}
+      >
         <QRCode
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
-          size={256}
+          size={200}
           renderAs="svg"
           level="M"
         />
-        <ClickToCopy style={{ marginTop: 16, marginBottom: 24 }}>{info.env.address}</ClickToCopy>
-      </div>
+        <ClickToCopy>{info.env.address}</ClickToCopy>
+      </Box>
     ),
     confirm: t('ok'),
     cancel: t('cancel'),
@@ -35,13 +45,7 @@ export default function DonateToken({ token }) {
 
   return (
     <>
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        rounded
-        onClick={() => setOpen(true)}
-        style={{ marginLeft: 16 }}>
+      <Button variant="contained" size="small" color="primary" rounded onClick={() => setOpen(true)}>
         {t('donate')}
       </Button>
       {open && (

@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext, createContext } from 'react';
 import useAsyncRetry from 'react-use/lib/useAsyncRetry';
 
 import client from '../libs/api';
 
-const TokenContext = React.createContext({});
+const TokenContext = createContext({});
 const { Provider, Consumer } = TokenContext;
 
 // eslint-disable-next-line react/prop-types

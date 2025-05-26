@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import Dialog from '@material-ui/core/Dialog';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Alert from '@material-ui/lab/Alert';
-import useTheme from '@material-ui/core/styles/useTheme';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {
+  Dialog,
+  CircularProgress,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Alert,
+  useMediaQuery,
+} from '@mui/material';
 
+import { useTheme, styled } from '@arcblock/ux/lib/Theme';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Button from '@arcblock/ux/lib/Button';
 
 import { formatError } from '../libs/util';
-import useMobileWidth from '../hooks/mobile-width';
 
 export default function ConfirmDialog({
   title,
@@ -24,7 +24,7 @@ export default function ConfirmDialog({
   showCancel,
   cancel,
   confirm,
-  color,
+  color = 'primary',
   params: initialParams,
   onCancel,
   onConfirm,
@@ -62,30 +62,30 @@ export default function ConfirmDialog({
   const handleClick = (e) => {
     e.stopPropagation();
   };
-  const { minWidth } = useMobileWidth();
 
   return (
-    <StyledDialog onClick={handleClick} fullScreen={isBreakpointsDownSm} open={open} style={{ minWidth }}>
+    <StyledDialog onClick={handleClick} fullScreen={isBreakpointsDownSm} open={open}>
       <DialogTitle>{t}</DialogTitle>
-      <DialogContent style={{ minWidth }}>
+      <DialogContent>
         <DialogContentText component="div">{d}</DialogContentText>
         {!!error && (
-          <Alert severity="error" style={{ width: '100%', marginTop: 8 }}>
+          <Alert severity="error" sx={{ width: '100%', marginTop: 8 }}>
             {error}
           </Alert>
         )}
       </DialogContent>
-      <DialogActions style={{ padding: '8px 24px 24px' }}>
+      <DialogActions sx={{ p: 3, pt: 1 }}>
         {showCancel && (
           <Button
             onClick={(e) => {
               e.stopPropagation();
               onCallback(onCancel);
             }}
-            color="default"
+            color="inherit"
             data-cy="cancel-confirm-dialog"
             rounded
-            size="small">
+            size="small"
+          >
             {cancel || changeLocale('common.cancel')}
           </Button>
         )}
@@ -96,12 +96,12 @@ export default function ConfirmDialog({
           }}
           color={color}
           size="small"
-          // eslint-disable-next-line no-underscore-dangle
           disabled={params.__disableConfirm || loading}
           variant="contained"
           data-cy="submit-confirm-dialog"
           autoFocus
-          rounded>
+          rounded
+        >
           {loading && <CircularProgress size={16} />}
           {confirm}
         </Button>

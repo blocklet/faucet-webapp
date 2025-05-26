@@ -1,4 +1,4 @@
-const en = require('./en');
-const zh = require('./zh');
+import en from './en';
+import zh from './zh';
 
-module.exports = { translations: { zh, en } };
+export const translations = { zh, en };

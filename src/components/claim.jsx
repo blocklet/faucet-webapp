@@ -1,7 +1,5 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Fragment, useState } from 'react';
 
 import DidConnect from '@arcblock/did-connect/lib/Connect';
 import Button from '@arcblock/ux/lib/Button';
@@ -24,7 +22,7 @@ export default function ClaimToken({ token }) {
   const vars = { ...info.env.types[type], ...token };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Button
         size="small"
         variant="contained"
@@ -36,26 +34,24 @@ export default function ClaimToken({ token }) {
       >
         {t('claim')}
       </Button>
-      {claimOpen && (
-        <DidConnect
-          responsive
-          className="faucet-auth"
-          action="claim"
-          checkFn={info.api.get}
-          checkTimeout={5 * 60 * 1000}
-          onSuccess={onClaimSuccess}
-          onClose={() => setClaimOpen(false)}
-          locale={locale}
-          messages={{
-            title: t('dialog.claim.title', vars),
-            scan: t('dialog.claim.scan', vars),
-            confirm: t('dialog.claim.confirm', vars),
-            success: t('dialog.claim.success', vars),
-          }}
-          extraParams={{ type, id: token._id }}
-        />
-      )}
-    </React.Fragment>
+      <DidConnect
+        open={claimOpen}
+        popup
+        className="faucet-auth"
+        action="claim"
+        checkFn={info.api.get}
+        onSuccess={onClaimSuccess}
+        onClose={() => setClaimOpen(false)}
+        locale={locale}
+        messages={{
+          title: t('dialog.claim.title', vars),
+          scan: t('dialog.claim.scan', vars),
+          confirm: t('dialog.claim.confirm', vars),
+          success: t('dialog.claim.success', vars),
+        }}
+        extraParams={{ type, id: token._id }}
+      />
+    </Fragment>
   );
 }
 

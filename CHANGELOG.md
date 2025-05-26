@@ -1,3 +1,8 @@
+## 0.5.0 (May 22, 2025)
+
+- feat: migrate to vite
+- feat: add biome & lefthook
+
 ## 0.4.0 (June 20, 2023)
 
 - chore: bump deps to latest

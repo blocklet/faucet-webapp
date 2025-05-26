@@ -1,5 +1,5 @@
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@arcblock/ux/lib/Theme';
 
 function useMobileWidth() {
   const theme = useTheme();
