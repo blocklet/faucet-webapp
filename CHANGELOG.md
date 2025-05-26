@@ -1,3 +1,7 @@
+## 0.5.2 (May 26, 2025)
+
+- fix: fix did-connect not close after success
+
 ## 0.5.1 (May 26, 2025)
 
 - fix: fix bundle error
