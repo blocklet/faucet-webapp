@@ -11,3 +11,4 @@ blocklet.js
 .eslintcache
 yarn-error.log
 build
+dist

@@ -12,14 +12,14 @@
     "url": "https://github.com/blocklet/faucet-webapp/issues",
     "email": "blocklet@arcblock.io"
   },
-  "version": "0.5.0",
+  "version": "0.5.1",
   "dependencies": {
     "@arcblock/did": "^1.20.11",
     "@arcblock/did-auth": "^1.20.11",
     "@arcblock/did-auth-storage-nedb": "^1.7.1",
-    "@arcblock/did-connect": "^2.13.45",
+    "@arcblock/did-connect": "^2.13.48",
     "@arcblock/jwt": "^1.20.11",
-    "@arcblock/ux": "^2.13.45",
+    "@arcblock/ux": "^2.13.48",
     "@arcblock/vc": "^1.20.11",
     "@blocklet/logger": "^1.16.43",
     "@blocklet/meta": "^1.16.43",
@@ -51,9 +51,8 @@
     "qrcode.react": "^1.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^5.3.4",
+    "react-router-dom": "^6.30.1",
     "react-use": "^17.6.0",
-    "serve-favicon": "^2.5.0",
     "url-join": "^4.0.1"
   },
   "scripts": {
