@@ -18,7 +18,7 @@ files:
   - logo.png
   - blocklet.md
   - README.md
-  - build
+  - dist
 group: dapp
 main: api/index.js
 logo: logo.png
