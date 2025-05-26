@@ -18,7 +18,9 @@ export default function ClaimToken({ token }) {
     setType(x);
     setClaimOpen(true);
   };
-  const onClaimSuccess = () => {};
+  const onClaimSuccess = () => {
+    setClaimOpen(false);
+  };
   const vars = { ...info.env.types[type], ...token };
 
   return (
@@ -50,6 +52,7 @@ export default function ClaimToken({ token }) {
           success: t('dialog.claim.success', vars),
         }}
         extraParams={{ type, id: token._id }}
+        useSocket={false}
       />
     </Fragment>
   );
