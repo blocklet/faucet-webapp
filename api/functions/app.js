@@ -24,7 +24,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.static(path.join(ROOT_DIR, 'public'), { maxAge: '1d', index: false }));
 
 logger.setupAccessLogger(app);
 
@@ -35,7 +34,7 @@ router.use('/api', claimRoutes);
 router.use('/api', envRoutes);
 router.use('/api', tokenRoutes);
 
-const staticDir = path.resolve(__dirname, '../../', 'dist');
+const staticDir = path.resolve(process.env.BLOCKLET_APP_DIR, 'dist');
 if (isProduction) {
   app.use(router);
   app.use(express.static(staticDir, { maxAge: '365d', index: false }));

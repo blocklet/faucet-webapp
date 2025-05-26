@@ -14,7 +14,6 @@ license: Apache-2.0
 title: ABT Network Faucet
 files:
   - screenshots
-  - public
   - logo.png
   - blocklet.md
   - README.md
