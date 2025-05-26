@@ -4,7 +4,6 @@ const path = require('node:path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const favicon = require('serve-favicon');
 const fallback = require('@blocklet/sdk/lib/middlewares/fallback');
 const logger = require('@blocklet/logger');
 
@@ -25,7 +24,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use(favicon(path.join(ROOT_DIR, 'public', 'favicon.ico')));
 app.use(express.static(path.join(ROOT_DIR, 'public'), { maxAge: '1d', index: false }));
 
 logger.setupAccessLogger(app);
