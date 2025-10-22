@@ -3,7 +3,6 @@
 import get from 'lodash/get';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
-import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import { AddOutlined as IconAdd } from '@mui/icons-material';
 import { CircularProgress, Container, TextField, Typography } from '@mui/material';
@@ -21,7 +20,6 @@ import ConfirmDialog from '../components/confirm';
 import TableStyle from '../components/table';
 import TokenActions from '../components/token-actions';
 import { useTokenContext } from '../contexts/token';
-import usePersistentSort from '../hooks/persistent-sort';
 import { formatError } from '../libs/util';
 
 export default function HomePage() {
@@ -29,14 +27,6 @@ export default function HomePage() {
   const { enqueueSnackbar } = useSnackbar();
   const info = useTokenContext();
   const [showAddDialog, setShowAddDialog] = useState(false);
-
-  const [pageSize, setNewPageSize] = useLocalStorage('token-page-size', 20);
-
-  const { sortDirections, onSortChange } = usePersistentSort('token', ['asc', '', '', '', '']);
-
-  const onPageSizeChange = (newPageSize) => {
-    setNewPageSize(newPageSize);
-  };
 
   const onAddToken = async (data) => {
     try {
@@ -117,7 +107,6 @@ export default function HomePage() {
       width: 60,
       options: {
         sort: true,
-        sortDirection: sortDirections[1],
       },
     },
     {
@@ -125,7 +114,6 @@ export default function HomePage() {
       label: t('address'),
       width: 120,
       options: {
-        sortDirection: sortDirections[2],
         customBodyRender: (value) => (value ? <ClickToCopy>{value}</ClickToCopy> : '-'),
       },
     },
@@ -133,9 +121,7 @@ export default function HomePage() {
       name: 'faucetAmount',
       label: t('amount'),
       width: 30,
-      options: {
-        sortDirection: sortDirections[3],
-      },
+      options: {},
     },
     {
       name: 'chainId',
@@ -143,7 +129,6 @@ export default function HomePage() {
       width: 30,
       options: {
         sort: true,
-        sortDirection: sortDirections[4],
       },
     },
     {
@@ -191,8 +176,11 @@ export default function HomePage() {
             columns={columns}
             options={{
               search: true,
+              print: false,
+              download: false,
+              filter: false,
               searchPlaceholder: t('search'),
-              rowsPerPage: pageSize,
+              rowsPerPage: 20,
               rowsPerPageOptions: [10, 20, 50, 100],
               textLabels: {
                 body: {
@@ -202,14 +190,6 @@ export default function HomePage() {
                   search: t('search'),
                 },
               },
-            }}
-            onChange={(state, action) => {
-              if (action === 'changeRowsPerPage') {
-                onPageSizeChange(state.rowsPerPage);
-              }
-              if (action === 'sort') {
-                onSortChange(state.sortOrder);
-              }
             }}
           />
         </TableStyle>
