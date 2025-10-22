@@ -31,6 +31,7 @@ export default function DonateToken({ token }) {
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
           size={200}
           level="M"
+          marginSize={2}
         />
         <ClickToCopy>{info.env.address}</ClickToCopy>
       </Box>

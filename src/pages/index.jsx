@@ -152,7 +152,9 @@ export default function HomePage() {
       width: 120,
       options: {
         sort: false,
-        customBodyRender: (value, tableMeta) => <TokenActions key={tableMeta.rowData._id} token={tableMeta.rowData} />,
+        customBodyRender: (value, tableMeta) => (
+          <TokenActions key={tableMeta.rowData._id} token={info.data[tableMeta.rowIndex]} />
+        ),
       },
     },
   ];

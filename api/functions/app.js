@@ -4,7 +4,7 @@ const path = require('node:path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const fallback = require('@blocklet/sdk/lib/middlewares/fallback');
+const { fallback } = require('@blocklet/sdk/lib/middlewares/fallback');
 const logger = require('@blocklet/logger');
 
 const { handlers } = require('../libs/auth');

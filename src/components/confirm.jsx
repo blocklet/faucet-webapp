@@ -25,7 +25,7 @@ export default function ConfirmDialog({
   cancel = '',
   confirm = 'Confirm',
   color = 'primary',
-  params: initialParams,
+  params: initialParams = {},
   onCancel = () => {},
   onConfirm,
 }) {

@@ -53,8 +53,11 @@ router.post('/tokens', async (req, res) => {
 
   // ensure the faucet webapp account exist on the token chain
   const { state: account } = await client.getAccountState({ address: wallet.address });
+
   if (!account) {
-    await client.declare({ moniker: 'faucet-webapp', wallet });
+    return res.status(403).json({
+      error: 'Faucet Webapp has no account on the target chain. Fund its address to create the account.',
+    });
   }
 
   // insert token record

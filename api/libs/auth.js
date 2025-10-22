@@ -1,12 +1,11 @@
 const path = require('node:path');
 const AuthStorage = require('@arcblock/did-connect-storage-nedb');
-const { types } = require('@ocap/mcrypto');
-const { fromSecretKey, WalletType } = require('@ocap/wallet');
 const { WalletAuthenticator, WalletHandlers } = require('@arcblock/did-connect-js');
+const { getWallet } = require('@blocklet/sdk/lib/wallet');
 
 const Token = require('../states/token');
 
-const wallet = fromSecretKey(process.env.BLOCKLET_APP_SK, WalletType({ role: types.RoleType.ROLE_APPLICATION }));
+const wallet = getWallet();
 
 const authenticator = new WalletAuthenticator({
   wallet: wallet.toJSON(),
