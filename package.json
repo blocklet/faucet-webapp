@@ -47,7 +47,6 @@
     "flat": "^5.0.2",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
-    "material-table": "^2.0.6",
     "notistack": "^3.0.2",
     "number-precision": "^1.6.0",
     "prop-types": "^15.8.1",

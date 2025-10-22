@@ -60,5 +60,3 @@ export default function ClaimToken({ token }) {
 ClaimToken.propTypes = {
   token: PropTypes.object.isRequired,
 };
-
-ClaimToken.defaultProps = {};

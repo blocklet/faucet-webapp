@@ -1,28 +1,27 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/destructuring-assignment */
 import get from 'lodash/get';
-import { useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { useState } from 'react';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import { Container, Typography, TextField, CircularProgress } from '@mui/material';
 import { AddOutlined as IconAdd } from '@mui/icons-material';
+import { CircularProgress, Container, TextField, Typography } from '@mui/material';
 
 import Button from '@arcblock/ux/lib/Button';
-import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
-import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
-import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Center from '@arcblock/ux/lib/Center';
+import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
+import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { styled } from '@arcblock/ux/lib/Theme';
 
-import MaterialTable from 'material-table';
+import DataTable from '@arcblock/ux/lib/Datatable';
 
 import ConfirmDialog from '../components/confirm';
-import TableIcons from '../components/table-icons';
 import TableStyle from '../components/table';
 import TokenActions from '../components/token-actions';
-import usePersistentSort from '../hooks/persistent-sort';
 import { useTokenContext } from '../contexts/token';
+import usePersistentSort from '../hooks/persistent-sort';
 import { formatError } from '../libs/util';
 
 export default function HomePage() {
@@ -113,37 +112,48 @@ export default function HomePage() {
 
   const columns = [
     {
-      title: t('symbol'),
-      field: 'symbol',
+      name: 'symbol',
+      label: t('symbol'),
       width: 60,
-      sorting: true,
-      defaultSort: sortDirections[1],
+      options: {
+        sort: true,
+        sortDirection: sortDirections[1],
+      },
     },
     {
-      title: t('address'),
-      field: 'address',
+      name: 'address',
+      label: t('address'),
       width: 120,
-      defaultSort: sortDirections[2],
-      render: (d) => (d.address ? <ClickToCopy>{d.address}</ClickToCopy> : '-'),
+      options: {
+        sortDirection: sortDirections[2],
+        customBodyRender: (value) => (value ? <ClickToCopy>{value}</ClickToCopy> : '-'),
+      },
     },
     {
-      title: t('amount'),
-      field: 'faucetAmount',
+      name: 'faucetAmount',
+      label: t('amount'),
       width: 30,
-      defaultSort: sortDirections[3],
+      options: {
+        sortDirection: sortDirections[3],
+      },
     },
     {
-      title: t('chain'),
-      field: 'chainId',
+      name: 'chainId',
+      label: t('chain'),
       width: 30,
-      sorting: true,
-      defaultSort: sortDirections[4],
+      options: {
+        sort: true,
+        sortDirection: sortDirections[4],
+      },
     },
     {
-      title: t('actions'),
-      sorting: false,
+      name: 'actions',
+      label: t('actions'),
       width: 120,
-      render: (d) => <TokenActions key={d._id} token={d} />,
+      options: {
+        sort: false,
+        customBodyRender: (value, tableMeta) => <TokenActions key={tableMeta.rowData._id} token={tableMeta.rowData} />,
+      },
     },
   ];
 
@@ -173,28 +183,32 @@ export default function HomePage() {
       </div>
       <div className="main">
         <TableStyle className="token-list">
-          <MaterialTable
+          <DataTable
             title={t('available')}
             data={info.data}
-            icons={{ ...TableIcons }}
+            columns={columns}
             options={{
-              header: true,
-              emptyRowsWhenPaging: false,
-              actionsColumnIndex: -1,
-              tableLayout: 'auto',
-              maxBodyHeight: '100%',
-              pageSize,
-              pageSizeOptions: [10, 20, 50, 100],
-            }}
-            localization={{
-              toolbar: { searchPlaceholder: t('search') },
-              body: {
-                emptyDataSourceMessage: t('noData'),
+              search: true,
+              searchPlaceholder: t('search'),
+              rowsPerPage: pageSize,
+              rowsPerPageOptions: [10, 20, 50, 100],
+              textLabels: {
+                body: {
+                  noMatch: t('noData'),
+                },
+                toolbar: {
+                  search: t('search'),
+                },
               },
             }}
-            onOrderChange={onSortChange}
-            onChangeRowsPerPage={onPageSizeChange}
-            columns={columns}
+            onChange={(state, action) => {
+              if (action === 'changeRowsPerPage') {
+                onPageSizeChange(state.rowsPerPage);
+              }
+              if (action === 'sort') {
+                onSortChange(state.sortOrder);
+              }
+            }}
           />
         </TableStyle>
       </div>

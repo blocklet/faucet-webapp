@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-import QRCode from 'qrcode.react';
 import Button from '@arcblock/ux/lib/Button';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import { QRCodeSVG } from 'qrcode.react';
 
-import ConfirmDialog from './confirm';
-import { useTokenContext } from '../contexts/token';
 import { Box } from '@mui/material';
+import { useTokenContext } from '../contexts/token';
+import ConfirmDialog from './confirm';
 
 export default function DonateToken({ token }) {
   const [open, setOpen] = useState(false);
@@ -26,12 +26,10 @@ export default function DonateToken({ token }) {
           justifyContent: 'center',
           gap: 1,
           p: 2,
-        }}
-      >
-        <QRCode
+        }}>
+        <QRCodeSVG
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
           size={200}
-          renderAs="svg"
           level="M"
         />
         <ClickToCopy>{info.env.address}</ClickToCopy>
