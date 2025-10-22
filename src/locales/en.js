@@ -34,10 +34,10 @@ export default flatten({
   },
   dialog: {
     claim: {
-      title: '需要扫码',
-      scan: '用你的 DID 钱包扫描下面的二维码以领取 {amount} {symbol}',
-      confirm: '请在 DID 钱包上确认',
-      success: '{amount} {symbol} 已经发送到你钱包',
+      title: 'DID Wallet Required',
+      scan: 'Scan following QRCode to claim {amount} {symbol}',
+      confirm: 'Review the operation on your DID Wallet',
+      success: '{amount} {symbol} sent to your wallet',
     },
   },
 });
