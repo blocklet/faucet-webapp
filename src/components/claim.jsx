@@ -31,7 +31,8 @@ export default function ClaimToken({ token }) {
         aria-label="split button"
         rounded
         data-cy="open-install-menu"
-        onClick={() => onClaimStart('day')}>
+        onClick={() => onClaimStart('day')}
+      >
         {t('claim')}
       </Button>
       <DidConnect

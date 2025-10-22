@@ -1,10 +1,9 @@
 /* eslint-disable object-curly-newline */
 
-import { createAuthServiceSessionContext } from "@arcblock/did-connect-react/lib/Session";
-import { useContext } from "react";
+import { createAuthServiceSessionContext } from '@arcblock/did-connect-react/lib/Session';
+import { useContext } from 'react';
 
-const { SessionProvider, SessionContext, SessionConsumer, withSession } =
-  createAuthServiceSessionContext();
+const { SessionProvider, SessionContext, SessionConsumer, withSession } = createAuthServiceSessionContext();
 
 function useSessionContext() {
   const info = useContext(SessionContext);
