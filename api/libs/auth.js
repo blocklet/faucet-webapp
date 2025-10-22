@@ -1,8 +1,8 @@
 const path = require('node:path');
-const AuthStorage = require('@arcblock/did-auth-storage-nedb');
+const AuthStorage = require('@arcblock/did-connect-storage-nedb');
 const { types } = require('@ocap/mcrypto');
 const { fromSecretKey, WalletType } = require('@ocap/wallet');
-const { WalletAuthenticator, WalletHandlers } = require('@arcblock/did-auth');
+const { WalletAuthenticator, WalletHandlers } = require('@arcblock/did-connect-js');
 
 const Token = require('../states/token');
 

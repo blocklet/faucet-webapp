@@ -18,9 +18,9 @@
   "version": "0.5.2",
   "dependencies": {
     "@arcblock/did": "^1.26.2",
-    "@arcblock/did-auth": "^1.21.1",
-    "@arcblock/did-auth-storage-nedb": "^1.7.1",
-    "@arcblock/did-connect": "^3.0.43",
+    "@arcblock/did-connect-js": "^1.26.2",
+    "@arcblock/did-connect-react": "^3.1.51",
+    "@arcblock/did-connect-storage-nedb": "^1.8.0",
     "@arcblock/jwt": "^1.26.2",
     "@arcblock/ux": "^3.1.51",
     "@arcblock/vc": "^1.26.2",
@@ -84,8 +84,9 @@
     ]
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.6",
+    "@biomejs/biome": "^1.9.4",
     "@vitejs/plugin-react": "^5.0.4",
+    "code-inspector-plugin": "^1.2.10",
     "lefthook": "^1.11.13",
     "nodemon": "^3.1.10",
     "vite": "^7.1.11",
