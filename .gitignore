@@ -12,3 +12,4 @@ blocklet.js
 yarn-error.log
 build
 dist
+BREAKING_CHANGE.md

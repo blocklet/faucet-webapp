@@ -1,3 +1,8 @@
+## 0.6.0 (October 22, 2025)
+
+- fix: make Blocklet signing asynchronous
+- chore: upgrade to React 19, MUI 7, and Vite 7
+
 ## 0.5.2 (May 26, 2025)
 
 - fix: fix did-connect not close after success

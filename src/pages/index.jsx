@@ -1,43 +1,36 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/destructuring-assignment */
 import get from 'lodash/get';
-import { useState } from 'react';
 import { useSnackbar } from 'notistack';
-import useLocalStorage from 'react-use/lib/useLocalStorage';
+import { useState } from 'react';
 
-import { Container, Typography, TextField, CircularProgress } from '@mui/material';
 import { AddOutlined as IconAdd } from '@mui/icons-material';
+import { CircularProgress, Container, TextField, Typography } from '@mui/material';
 
+import Address from '@arcblock/ux/lib/Address';
 import Button from '@arcblock/ux/lib/Button';
-import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
-import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
-import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Center from '@arcblock/ux/lib/Center';
+import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
+import { ThemeModeToggle } from '@arcblock/ux/lib/Config';
+import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { styled } from '@arcblock/ux/lib/Theme';
 
-import MaterialTable from 'material-table';
+import DataTable from '@arcblock/ux/lib/Datatable';
 
 import ConfirmDialog from '../components/confirm';
-import TableIcons from '../components/table-icons';
 import TableStyle from '../components/table';
 import TokenActions from '../components/token-actions';
-import usePersistentSort from '../hooks/persistent-sort';
 import { useTokenContext } from '../contexts/token';
+import useMobile from '../hooks/use-mobile';
 import { formatError } from '../libs/util';
 
 export default function HomePage() {
+  const isMobile = useMobile();
   const { t } = useLocaleContext();
   const { enqueueSnackbar } = useSnackbar();
   const info = useTokenContext();
   const [showAddDialog, setShowAddDialog] = useState(false);
-
-  const [pageSize, setNewPageSize] = useLocalStorage('token-page-size', 20);
-
-  const { sortDirections, onSortChange } = usePersistentSort('token', ['asc', '', '', '', '']);
-
-  const onPageSizeChange = (newPageSize) => {
-    setNewPageSize(newPageSize);
-  };
 
   const onAddToken = async (data) => {
     try {
@@ -113,37 +106,57 @@ export default function HomePage() {
 
   const columns = [
     {
-      title: t('symbol'),
-      field: 'symbol',
+      name: 'symbol',
+      label: t('symbol'),
       width: 60,
-      sorting: true,
-      defaultSort: sortDirections[1],
+      options: {
+        sort: true,
+      },
     },
     {
-      title: t('address'),
-      field: 'address',
+      name: 'address',
+      label: t('address'),
       width: 120,
-      defaultSort: sortDirections[2],
-      render: (d) => (d.address ? <ClickToCopy>{d.address}</ClickToCopy> : '-'),
+      options: {
+        customBodyRender: (value) => {
+          if (value) {
+            return isMobile ? (
+              <Address responsive={false} compact>
+                {value}
+              </Address>
+            ) : (
+              <ClickToCopy>{value}</ClickToCopy>
+            );
+          }
+
+          return '-';
+        },
+      },
     },
     {
-      title: t('amount'),
-      field: 'faucetAmount',
+      name: 'faucetAmount',
+      label: t('amount'),
       width: 30,
-      defaultSort: sortDirections[3],
+      options: {},
     },
     {
-      title: t('chain'),
-      field: 'chainId',
+      name: 'chainId',
+      label: t('chain'),
       width: 30,
-      sorting: true,
-      defaultSort: sortDirections[4],
+      options: {
+        sort: true,
+      },
     },
     {
-      title: t('actions'),
-      sorting: false,
+      name: 'actions',
+      label: t('actions'),
       width: 120,
-      render: (d) => <TokenActions key={d._id} token={d} />,
+      options: {
+        sort: false,
+        customBodyRender: (value, tableMeta) => (
+          <TokenActions key={tableMeta.rowData._id} token={info.data[tableMeta.rowIndex]} />
+        ),
+      },
     },
   ];
 
@@ -161,40 +174,43 @@ export default function HomePage() {
       <div className="header">
         <Typography component="h2" variant="h5" className="header-title">
           <img src={`${basename}images/logo.png`} alt="" className="header-logo" />
-          {t('title')}
+          {!isMobile && t('title')}
         </Typography>
         <div className="header-addons">
           <Button onClick={onAdd} variant="contained" color="primary" size="small" rounded>
             <IconAdd fontSize="small" />
             {t('add')}
           </Button>
-          <LocaleSelector size={28} showText={false} className="addon-locale" />
+          <LocaleSelector size={24} showText={false} className="addon-locale" />
+          <ThemeModeToggle />
         </div>
       </div>
       <div className="main">
         <TableStyle className="token-list">
-          <MaterialTable
+          <DataTable
             title={t('available')}
             data={info.data}
-            icons={{ ...TableIcons }}
+            columns={columns}
             options={{
-              header: true,
-              emptyRowsWhenPaging: false,
-              actionsColumnIndex: -1,
-              tableLayout: 'auto',
-              maxBodyHeight: '100%',
-              pageSize,
-              pageSizeOptions: [10, 20, 50, 100],
-            }}
-            localization={{
-              toolbar: { searchPlaceholder: t('search') },
-              body: {
-                emptyDataSourceMessage: t('noData'),
+              search: true,
+              print: false,
+              download: false,
+              filter: false,
+              searchPlaceholder: t('search'),
+              rowsPerPage: 20,
+              rowsPerPageOptions: [10, 20, 50, 100],
+              textLabels: {
+                body: {
+                  noMatch: t('noData'),
+                },
+                toolbar: {
+                  search: t('search'),
+                },
+                pagination: {
+                  rowsPerPage: t('rowsPerPage'),
+                },
               },
             }}
-            onOrderChange={onSortChange}
-            onChangeRowsPerPage={onPageSizeChange}
-            columns={columns}
           />
         </TableStyle>
       </div>
@@ -214,7 +230,7 @@ export default function HomePage() {
 }
 
 const Div = styled(Container)`
-  margin-top: 32px;
+  margin-top: 16px;
 
   .header {
     margin-bottom: 16px;
@@ -240,8 +256,8 @@ const Div = styled(Container)`
 
   .header-title {
     .header-logo {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       border-radius: 24px;
       margin-right: 8px;
     }
@@ -250,7 +266,7 @@ const Div = styled(Container)`
   .main {
     .MuiPaper-root-5 {
       box-shadow: none;
-      border: 1px solid #efefef;
+      border: 1px solid ${({ theme }) => theme.palette.divider};
     }
   }
 `;

@@ -1,32 +1,32 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 import {
-  Dialog,
+  Alert,
   CircularProgress,
+  Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Alert,
   useMediaQuery,
 } from '@mui/material';
 
-import { useTheme, styled } from '@arcblock/ux/lib/Theme';
-import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import Button from '@arcblock/ux/lib/Button';
+import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import { styled, useTheme } from '@arcblock/ux/lib/Theme';
 
 import { formatError } from '../libs/util';
 
 export default function ConfirmDialog({
   title,
   description,
-  showCancel,
-  cancel,
-  confirm,
+  showCancel = true,
+  cancel = '',
+  confirm = 'Confirm',
   color = 'primary',
-  params: initialParams,
-  onCancel,
+  params: initialParams = {},
+  onCancel = () => {},
   onConfirm,
 }) {
   const [params, setParams] = useState(initialParams);
@@ -84,8 +84,7 @@ export default function ConfirmDialog({
             color="inherit"
             data-cy="cancel-confirm-dialog"
             rounded
-            size="small"
-          >
+            size="small">
             {cancel || changeLocale('common.cancel')}
           </Button>
         )}
@@ -100,8 +99,7 @@ export default function ConfirmDialog({
           variant="contained"
           data-cy="submit-confirm-dialog"
           autoFocus
-          rounded
-        >
+          rounded>
           {loading && <CircularProgress size={16} />}
           {confirm}
         </Button>
@@ -120,15 +118,6 @@ ConfirmDialog.propTypes = {
   params: PropTypes.object, // This object holds states managed in the dialog
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func.isRequired,
-};
-
-ConfirmDialog.defaultProps = {
-  onCancel: () => {},
-  showCancel: true,
-  cancel: '',
-  confirm: 'Confirm',
-  color: 'primary',
-  params: {},
 };
 
 const StyledDialog = styled(Dialog)`

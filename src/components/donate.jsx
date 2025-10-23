@@ -1,14 +1,15 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-import QRCode from 'qrcode.react';
+import Address from '@arcblock/ux/lib/Address';
 import Button from '@arcblock/ux/lib/Button';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import { QRCodeSVG } from 'qrcode.react';
 
-import ConfirmDialog from './confirm';
-import { useTokenContext } from '../contexts/token';
 import { Box } from '@mui/material';
+import { useTokenContext } from '../contexts/token';
+import ConfirmDialog from './confirm';
 
 export default function DonateToken({ token }) {
   const [open, setOpen] = useState(false);
@@ -20,21 +21,23 @@ export default function DonateToken({ token }) {
     description: (
       <Box
         sx={{
+          minWidth: {
+            md: 320,
+          },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           gap: 1,
-          p: 2,
-        }}
-      >
-        <QRCode
+          pt: 1,
+        }}>
+        <QRCodeSVG
           value={`abt://abtwallet.io/i?did=did:abt:${info.env.address}&action=didRecognize&chainID=${token.chainId}`}
           size={200}
-          renderAs="svg"
           level="M"
+          marginSize={2}
         />
-        <ClickToCopy>{info.env.address}</ClickToCopy>
+        <Address style={{ textAlign: 'center', paddingTop: 8 }}>{info.env.address}</Address>
       </Box>
     ),
     confirm: t('ok'),

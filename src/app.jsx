@@ -48,8 +48,7 @@ export const App = () => {
             <IconButton key="close" aria-label="close" color="inherit" onClick={onClickDismiss(key)}>
               <CloseIcon style={{ fontSize: 16 }} />
             </IconButton>
-          )}
-        >
+          )}>
           <TokenProvider>
             <InsideApp />
           </TokenProvider>

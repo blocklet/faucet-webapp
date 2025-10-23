@@ -17,6 +17,7 @@ export default flatten({
   address: 'DID',
   actions: '动作',
   noData: '还没有任何通证',
+  rowsPerPage: '每页显示',
   amount: '领取数量',
   donateDesc: '用 DID Wallet 扫码完成捐赠',
   chainHost: {
@@ -34,10 +35,10 @@ export default flatten({
   },
   dialog: {
     claim: {
-      title: 'DID Wallet Required',
-      scan: 'Scan following QRCode to claim {amount} {symbol}',
-      confirm: 'Review the operation on your DID Wallet',
-      success: '{amount} {symbol} sent to your wallet',
+      title: '需要扫码',
+      scan: '用你的 DID 钱包扫描下面的二维码以领取 {amount} {symbol}',
+      confirm: '请在 DID 钱包上确认',
+      success: '{amount} {symbol} 已经发送到你钱包',
     },
   },
 });

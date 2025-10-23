@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
-import { Fragment, useState } from 'react';
-
-import DidConnect from '@arcblock/did-connect/lib/Connect';
+import DidConnect from '@arcblock/did-connect-react/lib/Connect';
 import Button from '@arcblock/ux/lib/Button';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
+import PropTypes from 'prop-types';
+import { Fragment, useState } from 'react';
 
 import { useTokenContext } from '../contexts/token';
 
@@ -32,8 +31,7 @@ export default function ClaimToken({ token }) {
         aria-label="split button"
         rounded
         data-cy="open-install-menu"
-        onClick={() => onClaimStart('day')}
-      >
+        onClick={() => onClaimStart('day')}>
         {t('claim')}
       </Button>
       <DidConnect
@@ -61,5 +59,3 @@ export default function ClaimToken({ token }) {
 ClaimToken.propTypes = {
   token: PropTypes.object.isRequired,
 };
-
-ClaimToken.defaultProps = {};
