@@ -17,6 +17,7 @@ export default flatten({
   address: 'DID',
   actions: '动作',
   noData: '还没有任何通证',
+  rowsPerPage: '每页显示',
   amount: '领取数量',
   donateDesc: '用 DID Wallet 扫码完成捐赠',
   chainHost: {

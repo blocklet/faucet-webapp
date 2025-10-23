@@ -17,6 +17,7 @@ export default flatten({
   address: 'DID',
   actions: 'Actions',
   noData: 'No Tokens listed yet',
+  rowsPerPage: 'Per page',
   amount: 'Claimed',
   donateDesc: 'Scan with DID Wallet to Donate',
   chainHost: {

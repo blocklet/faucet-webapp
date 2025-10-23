@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { AddOutlined as IconAdd } from '@mui/icons-material';
 import { CircularProgress, Container, TextField, Typography } from '@mui/material';
 
+import Address from '@arcblock/ux/lib/Address';
 import Button from '@arcblock/ux/lib/Button';
 import Center from '@arcblock/ux/lib/Center';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
@@ -21,9 +22,11 @@ import ConfirmDialog from '../components/confirm';
 import TableStyle from '../components/table';
 import TokenActions from '../components/token-actions';
 import { useTokenContext } from '../contexts/token';
+import useMobile from '../hooks/use-mobile';
 import { formatError } from '../libs/util';
 
 export default function HomePage() {
+  const isMobile = useMobile();
   const { t } = useLocaleContext();
   const { enqueueSnackbar } = useSnackbar();
   const info = useTokenContext();
@@ -115,7 +118,19 @@ export default function HomePage() {
       label: t('address'),
       width: 120,
       options: {
-        customBodyRender: (value) => (value ? <ClickToCopy>{value}</ClickToCopy> : '-'),
+        customBodyRender: (value) => {
+          if (value) {
+            return isMobile ? (
+              <Address responsive={false} compact>
+                {value}
+              </Address>
+            ) : (
+              <ClickToCopy>{value}</ClickToCopy>
+            );
+          }
+
+          return '-';
+        },
       },
     },
     {
@@ -159,14 +174,14 @@ export default function HomePage() {
       <div className="header">
         <Typography component="h2" variant="h5" className="header-title">
           <img src={`${basename}images/logo.png`} alt="" className="header-logo" />
-          {t('title')}
+          {!isMobile && t('title')}
         </Typography>
         <div className="header-addons">
           <Button onClick={onAdd} variant="contained" color="primary" size="small" rounded>
             <IconAdd fontSize="small" />
             {t('add')}
           </Button>
-          <LocaleSelector size={28} showText={false} className="addon-locale" />
+          <LocaleSelector size={24} showText={false} className="addon-locale" />
           <ThemeModeToggle />
         </div>
       </div>
@@ -191,6 +206,9 @@ export default function HomePage() {
                 toolbar: {
                   search: t('search'),
                 },
+                pagination: {
+                  rowsPerPage: t('rowsPerPage'),
+                },
               },
             }}
           />
@@ -212,7 +230,7 @@ export default function HomePage() {
 }
 
 const Div = styled(Container)`
-  margin-top: 32px;
+  margin-top: 16px;
 
   .header {
     margin-bottom: 16px;
@@ -238,8 +256,8 @@ const Div = styled(Container)`
 
   .header-title {
     .header-logo {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       border-radius: 24px;
       margin-right: 8px;
     }

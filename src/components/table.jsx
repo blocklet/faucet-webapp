@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { styled } from '@arcblock/ux/lib/Theme';
+import PropTypes from 'prop-types';
 
 export default function TableStyle({ children, ...rest }) {
   return <Div {...rest}>{children}</Div>;
@@ -16,6 +16,5 @@ const Div = styled('div')`
   .MuiTableCell-root {
     padding-left: 16px;
     padding-right: 16px;
-    border-bottom-width: 1px;
   }
 `;
