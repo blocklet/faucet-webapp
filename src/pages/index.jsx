@@ -10,6 +10,7 @@ import { CircularProgress, Container, TextField, Typography } from '@mui/materia
 import Button from '@arcblock/ux/lib/Button';
 import Center from '@arcblock/ux/lib/Center';
 import ClickToCopy from '@arcblock/ux/lib/ClickToCopy';
+import { ThemeModeToggle } from '@arcblock/ux/lib/Config';
 import { useLocaleContext } from '@arcblock/ux/lib/Locale/context';
 import LocaleSelector from '@arcblock/ux/lib/Locale/selector';
 import { styled } from '@arcblock/ux/lib/Theme';
@@ -166,6 +167,7 @@ export default function HomePage() {
             {t('add')}
           </Button>
           <LocaleSelector size={28} showText={false} className="addon-locale" />
+          <ThemeModeToggle />
         </div>
       </div>
       <div className="main">
@@ -246,7 +248,7 @@ const Div = styled(Container)`
   .main {
     .MuiPaper-root-5 {
       box-shadow: none;
-      border: 1px solid #efefef;
+      border: 1px solid ${({ theme }) => theme.palette.divider};
     }
   }
 `;
