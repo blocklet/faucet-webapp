@@ -1,3 +1,7 @@
+## 0.6.1 (October 28, 2025)
+
+- feat: use a more secure signature mechanism 
+
 ## 0.6.0 (October 22, 2025)
 
 - fix: make Blocklet signing asynchronous
