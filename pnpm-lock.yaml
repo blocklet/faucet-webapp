@@ -34,14 +34,14 @@ importers:
         specifier: ^1.26.3
         version: 1.26.3
       '@blocklet/logger':
-        specifier: ^1.16.54-beta-20251027-105624-dfa978f8
-        version: 1.16.54-beta-20251027-105624-dfa978f8
+        specifier: ^1.16.54-beta-20251028-092308-569763e6
+        version: 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/meta':
-        specifier: ^1.16.54-beta-20251027-105624-dfa978f8
-        version: 1.16.54-beta-20251027-105624-dfa978f8
+        specifier: ^1.16.54-beta-20251028-092308-569763e6
+        version: 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/sdk':
-        specifier: ^1.16.54-beta-20251027-105624-dfa978f8
-        version: 1.16.54-beta-20251027-105624-dfa978f8(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+        specifier: ^1.16.54-beta-20251028-092308-569763e6
+        version: 1.16.54-beta-20251028-092308-569763e6(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@mui/icons-material':
         specifier: ^7.3.4
         version: 7.3.4(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/react@17.0.38)(react@19.2.0)
@@ -160,29 +160,29 @@ packages:
   '@abtnode/constant@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-Dsvepn6eKvEUzMEQHEueAA8Dare6K4Ts5ZsekgUHvfBHRPOD3NphPsd79Q1DqmnrG82+TocS7djUGk0/bnj9Kw==}
 
-  '@abtnode/constant@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-fa96NCOcuKt4JvLLHB2XbzzOTJIn5cVX2hyhx/W2dNNt1fB9+K/J2Ph9wXqBA0crQguFiIQsvtg5wkYlBajvIw==}
+  '@abtnode/constant@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-4Woo+cDbJNumOAvmTq8PzOkWmXhHUQtRR5AJxYaytXtcXIvNMcqVQt57N+KzeJcjTTfk+vG9pcDViAQ9+dDc9g==}
 
   '@abtnode/db-cache@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-SdkwYDv5sq6bmtYV3s/+Xo2WKRjdcd38If3j7HAUBB7S2NDvmRpgr3Tb2jZet/1KTKAa7XberHVps/l7AD3qqA==}
 
-  '@abtnode/db-cache@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-6ez6JIHGYzAwgsI8OkezwgYsr8DFOGMFu0T2JAgPwrIS2QV+d45+BgJzCU2B1aMy8t2NkAShLQogJaoEVQACFQ==}
+  '@abtnode/db-cache@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-BSuCfcdLHIZQ3xFdwavogK+UhOGb2kFiBX4ZuohRh+bTwl+y8dO2BIZ5kSznvBng3Nky/Qcv4HG+zdY2qUBcZQ==}
 
   '@abtnode/docker-utils@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-rlrevoWbDcgFmUfSRsBGO9RnWala/Ac/ePBNrsSMoM7SWmqN4rG8agzgRkcjZ3dHVWvNHcdeCogoDGV0WRv6hg==}
 
-  '@abtnode/docker-utils@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-kSdpgQw+0n/fDW1gBTx0GUoImJsjK0KvBTT6qF31V8wyrqtkaFRf0p3XMTJ0mAtjTZDBhivmAwp4bNWv1EDuoA==}
+  '@abtnode/docker-utils@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-0TJmsruK8Y80lK7sW5gHa3RQ/Bd4aM6F0xhoHLCtZqoAEdWrIlpw1cZTrT9iMwJZ20cJM4LDlHh6CUPl6L4x5Q==}
 
   '@abtnode/file-stream-rotator@0.6.3':
     resolution: {integrity: sha512-vCHn68o7k0FY5Qois5YP/n0AYuA9w9HzfvvxHN7v97oY/ElwMPlcUF4OmaRXqtk/tVRQVXYdj/Qey32wM4oiNw==}
 
-  '@abtnode/logger@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-aL+NdWjysZRt9rzKnVSzhk2f6GCPpouAEQHDA4HyWdSBI5BqMFgMpYhJmnE0uCAbtXWVqsQF7FiemLPucYkM1A==}
+  '@abtnode/logger@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-sFodI6yxkKbX32OuF4F1sxn8t4OSQa2IDtA/05MI9E703/CfJp7OuZyoWulJ8uPJ1qrkuuLLWHurBcnM5ht/fw==}
 
-  '@abtnode/util@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-TpkvqQ8lhPT0QhLVivMr433gQ5nohR5SQsW+/dVV8zVl1Os9SL+cGzzokAZSVmaeE42Zg2GDEbSNOW0n4hlw1Q==}
+  '@abtnode/util@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-MCShgcsFOKZa8jcKRmwvPJrsL7m0Ld32swr06GDFczdiaXLEvuL6McYmRfklHchJvJ3+9TCCCMkQODtBOj4jvw==}
 
   '@abtnode/winston-daily-rotate-file@5.0.1':
     resolution: {integrity: sha512-FUnLTCFRocN4gIioS+UQICheqnSjlrAwToRgdc7fuyE0QpK0dkTLkX47QZTK+k4zfypW1aqtGV+GWvhnZ6G/2Q==}
@@ -422,11 +422,11 @@ packages:
   '@blocklet/constant@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-82MKw/QM0UHrh9aA/VgkFr+ksUXlPbOjCmvO5UN6jn5Kw092T/DbBTasSs+06c2Ltdkc6DvqXjUHRmq9O2PYOA==}
 
-  '@blocklet/constant@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-kwtBrFgvCuuCweh+sOBNBYjmDPkLvNegWkUyHwlBBCfRYkLl4x55YS+RpuJ2vVNGstlKrTlJvztdmSc0XLFKYA==}
+  '@blocklet/constant@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-7q9++xwB6EyQ1GdueizpWhqfBFBtWo4OR2EEZSfcFY8GUQp36Xp9f9dFk9M7y15/pzUYQ+3rRhmxYpU0E2kVzQ==}
 
-  '@blocklet/env@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-PIiMjf4JQd8MtrCHfRFy340Ew5otxK2YCMYgNH/Beu+t8sIAh47eTP4RGOZycsxg/Pq25NgZCSXr4Ki3g9ivEQ==}
+  '@blocklet/env@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-4T9bzNs2745APS4orRqoI+F/VuLOPNfAg3vK9+YeF6Q288HIVTgwed79iDSCfWeS9vCFrZ8Knpz5UBVaXxA8dw==}
 
   '@blocklet/error@0.2.5':
     resolution: {integrity: sha512-fuvTH5XqM6/ZsEks18sirJSaYvlNfBa69iWSeuKU6syw3/STujz8a0uxrU6TnoMqDVAXWUD/wZiOHMnRcutP4A==}
@@ -434,20 +434,20 @@ packages:
   '@blocklet/js-sdk@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-bEm4PoQ6LVQFycjQ9Kk8ivd863qwyKXt4/2YMOFZlOZEGOgNboBNyfPYDrxraJhsIUGZlcsoKcE9UDtAW4iLaA==}
 
-  '@blocklet/logger@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-/WvJ4cIF/s4QJhmeqlCkFzmagCyyxTVbPcJWfjqfNU+Uu/zAOclzckwiq7Hbcx0TkgMoLd3DpTxiKibYT6/S7w==}
+  '@blocklet/logger@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-n5zp9/4VGrIPmfcNgjn2YTiF8fwaYTaMUyQZk1zyXDVnr/7IwDcrfuY+r+RItq0ZEF8ud1VGj+5z+WvSOQdF4g==}
 
   '@blocklet/meta@1.16.54-beta-20251023-041534-36eec6b9':
     resolution: {integrity: sha512-C0yKBEuCZz2APRKtFEVIest1oamPP4Co0fqlnHc+2tk72GlJwJ2jhF/ic01aJDKFUitlVXszTwMTkwknxTyrjQ==}
 
-  '@blocklet/meta@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-hCQrqbdqqcrMJx2a/7NQ2hpfvPJDfY6G7SghxRix4+nG9iAVZR2Cp1pjpF9JnYMdo3Fkwu/1C5mT7jeR5d1qKA==}
+  '@blocklet/meta@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-XcjvCs2HZHYJK69Sol9CJXOwcy1NzANy6pQY+UcgAr3jRDmzxan8kd2/fI4qVoIf8i5QxIB+IhWjyRFBaJNhCw==}
 
-  '@blocklet/sdk@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-Y/FuI6ySW9Yvd3Zmgf48gp7Pycbf/KGsOSQVGq52B20pA+q0xifPe4iuN+w0Yq/MDiEjAgxNer+FQ573gbqUqA==}
+  '@blocklet/sdk@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-7AdYHh5/HUmv396hTMfyqmGKtUMlWG3m0hxlBiYTD5RI6VHpfaIeGmDKk+hFc6salwG3RwqhEMXFioqsmccrrg==}
 
-  '@blocklet/server-js@1.16.54-beta-20251027-105624-dfa978f8':
-    resolution: {integrity: sha512-ZzTBDkHR1HeOV99gI1GgMRJRatWecWi6my9G8FQlqoD2GV0kIFUijEBn9c8N14u3zy1/MnrrbwPD2nhEtrKOJg==}
+  '@blocklet/server-js@1.16.54-beta-20251028-092308-569763e6':
+    resolution: {integrity: sha512-J7APkvUA+tPw9GiknbTLYvrMnnPadfdOGsqO1fjQu4+9jtA5Xd8Q8NWaxao9bcZHxqfuFlT+/DklthUIeS9ihA==}
 
   '@blocklet/theme@3.1.52':
     resolution: {integrity: sha512-j/kBvK8b35hPn8yR8/smcKm0X1UTH99WYuhmMt4rKdnEB+ppEmwZ5nGppvV22OVr9D3z87L/4XDC/ruBJZw2xQ==}
@@ -5218,7 +5218,7 @@ snapshots:
 
   '@abtnode/constant@1.16.54-beta-20251023-041534-36eec6b9': {}
 
-  '@abtnode/constant@1.16.54-beta-20251027-105624-dfa978f8': {}
+  '@abtnode/constant@1.16.54-beta-20251028-092308-569763e6': {}
 
   '@abtnode/db-cache@1.16.54-beta-20251023-041534-36eec6b9':
     dependencies:
@@ -5228,7 +5228,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@abtnode/db-cache@1.16.54-beta-20251027-105624-dfa978f8':
+  '@abtnode/db-cache@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
       redis: 5.8.3
       sqlite3: 5.1.7
@@ -5240,7 +5240,7 @@ snapshots:
     dependencies:
       joi: 17.12.2
 
-  '@abtnode/docker-utils@1.16.54-beta-20251027-105624-dfa978f8':
+  '@abtnode/docker-utils@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
       joi: 17.12.2
 
@@ -5248,10 +5248,10 @@ snapshots:
     dependencies:
       moment: 2.30.1
 
-  '@abtnode/logger@1.16.54-beta-20251027-105624-dfa978f8':
+  '@abtnode/logger@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
-      '@abtnode/constant': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/util': 1.16.54-beta-20251027-105624-dfa978f8
+      '@abtnode/constant': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/util': 1.16.54-beta-20251028-092308-569763e6
       '@abtnode/winston-daily-rotate-file': 5.0.1(winston@3.17.0)
       debug: 4.4.1(supports-color@5.5.0)
       fast-safe-stringify: 2.1.1
@@ -5266,16 +5266,16 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@abtnode/util@1.16.54-beta-20251027-105624-dfa978f8':
+  '@abtnode/util@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
-      '@abtnode/constant': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/db-cache': 1.16.54-beta-20251027-105624-dfa978f8
+      '@abtnode/constant': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/db-cache': 1.16.54-beta-20251028-092308-569763e6
       '@arcblock/did': 1.26.3
       '@arcblock/event-hub': 1.26.3
       '@arcblock/pm2': 6.0.12
-      '@blocklet/constant': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/constant': 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/error': 0.2.5
-      '@blocklet/meta': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/meta': 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/xss': 0.2.12
       '@ocap/client': 1.26.3
       '@ocap/mcrypto': 1.26.3
@@ -5839,11 +5839,11 @@ snapshots:
 
   '@blocklet/constant@1.16.54-beta-20251023-041534-36eec6b9': {}
 
-  '@blocklet/constant@1.16.54-beta-20251027-105624-dfa978f8': {}
+  '@blocklet/constant@1.16.54-beta-20251028-092308-569763e6': {}
 
-  '@blocklet/env@1.16.54-beta-20251027-105624-dfa978f8':
+  '@blocklet/env@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
-      '@blocklet/constant': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/constant': 1.16.54-beta-20251028-092308-569763e6
 
   '@blocklet/error@0.2.5': {}
 
@@ -5883,9 +5883,9 @@ snapshots:
       - debug
       - supports-color
 
-  '@blocklet/logger@1.16.54-beta-20251027-105624-dfa978f8':
+  '@blocklet/logger@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
-      '@abtnode/logger': 1.16.54-beta-20251027-105624-dfa978f8
+      '@abtnode/logger': 1.16.54-beta-20251028-092308-569763e6
     transitivePeerDependencies:
       - bluebird
       - bufferutil
@@ -5933,16 +5933,16 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@blocklet/meta@1.16.54-beta-20251027-105624-dfa978f8':
+  '@blocklet/meta@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
-      '@abtnode/constant': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/db-cache': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/docker-utils': 1.16.54-beta-20251027-105624-dfa978f8
+      '@abtnode/constant': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/db-cache': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/docker-utils': 1.16.54-beta-20251028-092308-569763e6
       '@arcblock/did': 1.26.3
       '@arcblock/did-ext': 1.26.3
       '@arcblock/did-util': 1.26.3
       '@arcblock/jwt': 1.26.3
-      '@blocklet/constant': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/constant': 1.16.54-beta-20251028-092308-569763e6
       '@ocap/asset': 1.26.3
       '@ocap/mcrypto': 1.26.3
       '@ocap/types': 1.26.3
@@ -5974,21 +5974,21 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@blocklet/sdk@1.16.54-beta-20251027-105624-dfa978f8(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
+  '@blocklet/sdk@1.16.54-beta-20251028-092308-569763e6(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
-      '@abtnode/constant': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/db-cache': 1.16.54-beta-20251027-105624-dfa978f8
-      '@abtnode/util': 1.16.54-beta-20251027-105624-dfa978f8
+      '@abtnode/constant': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/db-cache': 1.16.54-beta-20251028-092308-569763e6
+      '@abtnode/util': 1.16.54-beta-20251028-092308-569763e6
       '@arcblock/did': 1.26.3
       '@arcblock/did-connect-js': 1.26.3
       '@arcblock/did-ext': 1.26.3
       '@arcblock/jwt': 1.26.3
       '@arcblock/ws': 1.26.3
-      '@blocklet/constant': 1.16.54-beta-20251027-105624-dfa978f8
-      '@blocklet/env': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/constant': 1.16.54-beta-20251028-092308-569763e6
+      '@blocklet/env': 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/error': 0.2.5
-      '@blocklet/meta': 1.16.54-beta-20251027-105624-dfa978f8
-      '@blocklet/server-js': 1.16.54-beta-20251027-105624-dfa978f8
+      '@blocklet/meta': 1.16.54-beta-20251028-092308-569763e6
+      '@blocklet/server-js': 1.16.54-beta-20251028-092308-569763e6
       '@blocklet/theme': 3.1.52(@mui/material@7.3.4(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.1(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react@19.2.0))(@types/react@17.0.38)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@did-connect/authenticator': 2.2.8
       '@did-connect/handler': 2.2.8(debug@4.4.1)
@@ -6018,7 +6018,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@blocklet/server-js@1.16.54-beta-20251027-105624-dfa978f8':
+  '@blocklet/server-js@1.16.54-beta-20251028-092308-569763e6':
     dependencies:
       '@arcblock/sdk-util': 0.36.1
       '@ocap/util': 1.26.3
