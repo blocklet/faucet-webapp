@@ -1,14 +1,14 @@
 const path = require('node:path');
 const AuthStorage = require('@arcblock/did-connect-storage-nedb');
-const { WalletAuthenticator, WalletHandlers } = require('@arcblock/did-connect-js');
 const { getWallet } = require('@blocklet/sdk/lib/wallet');
+const { WalletAuthenticator } = require('@blocklet/sdk/lib/wallet-authenticator');
+const { WalletHandlers } = require('@blocklet/sdk/lib/wallet-handler');
 
 const Token = require('../states/token');
 
 const wallet = getWallet();
 
 const authenticator = new WalletAuthenticator({
-  wallet: wallet.toJSON(),
   appInfo: ({ baseUrl }) => ({
     name: process.env.BLOCKLET_APP_NAME,
     description: process.env.BLOCKLET_APP_DESCRIPTION,
