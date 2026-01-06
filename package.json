@@ -2,7 +2,10 @@
   "name": "faucet-webapp",
   "description": "Faucet for arcblock blockchain network",
   "private": true,
-  "keywords": ["blockchain", "faucet"],
+  "keywords": [
+    "blockchain",
+    "faucet"
+  ],
   "author": "ArcBlock <blocklet@arcblock.io> https://github.com/blocklet",
   "repository": {
     "type": "git",
@@ -65,11 +68,20 @@
     "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
     "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
     "update:deps": "npx -y taze latest -r -w -n '/@abtnode|@aigne|@arcblock|@blocklet|@did-connect|@did-pay|@did-space|@nft-store|@nft-studio|@ocap|vite-plugin-blocklet/' && pnpm i && pnpm dedupe",
+    "verify": "npm run lint && npm run bundle",
     "bump-version": "make bump-version"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
