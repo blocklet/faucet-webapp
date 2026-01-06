@@ -9,7 +9,9 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       svgr(),
-      createBlockletPlugin(),
+      createBlockletPlugin({
+        chunkSizeLimit: 4096,
+      }),
       mode === 'development' &&
         codeInspectorPlugin({
           bundler: 'vite',
